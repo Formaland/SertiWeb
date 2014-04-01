@@ -1,0 +1,3 @@
+pfe_web_include_dashboard:
+    resource: "@PfeWebBundle/Resources/config/Routing/dashboard.yml"
+    prefix:   /
