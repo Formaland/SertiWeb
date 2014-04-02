@@ -1,6 +1,9 @@
 pfe_web_homepage:
     pattern:  /
-    defaults: { _controller: PfeWebBundle:Dashboard:index }
+        defaults:
+            _controller: "FrameworkBundle:Redirect:redirect"
+            route: pfe_web_dashboard
+            permanent: true
 
 pfe_web_dashboard:
     pattern:  /dashboard

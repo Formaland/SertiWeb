@@ -1,3 +1,7 @@
 pfe_web_include_dashboard:
     resource: "@PfeWebBundle/Resources/config/Routing/dashboard.yml"
     prefix:   /
+
+pfe_web_user:
+    resource: "@PfeUserBundle/Resources/config/routing.yml"
+    prefix:   /user
