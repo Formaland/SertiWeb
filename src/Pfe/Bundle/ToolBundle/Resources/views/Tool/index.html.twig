@@ -1,48 +1,46 @@
 {% extends 'PfeToolBundle::layout.html.twig' %}
 
+{% block title_page %}<i class="fa fa-list"></i> Liste des outils{% endblock %}
 {% block content -%}
-    <h1>Liste des Outils</h1>
-
-    <table class="records_list" border="1">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom De l'outil </th>
-                <th>Fournisseur Outil </th>
-                <th>N° d'inventaire </th>
-                <th>N° Pièce LEONI </th>
-                <th>Date d'entrée </th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('tool_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.toolname }}</td>
-                <td>{{ entity.supplierName }}</td>
-                <td>{{ entity.inventoryNumber }}</td>
-                <td>{{ entity.leoniNbr }}</td>
-                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('tool_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('tool_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+    <div class="clearfix mb30"></div>
+        <div class="table-responsive">
+            <table class="table" id="table2">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th >Nom De l'outil </th>
+                    <th>Fournisseur Outil </th>
+                    <th>N° d'inventaire </th>
+                    <th>N° Pièce LEONI </th>
+                    <th>Date d'entrée </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <th><a href="{{ path('tool_show', { 'id': entity.id }) }}">{{ entity.id }}</a></th>
+                        <th>{{ entity.toolname }}</th>
+                        <th>{{ entity.supplierName }}</th>
+                        <th>{{ entity.inventoryNumber }}</th>
+                        <th>{{ entity.leoniNbr }}</th>
+                        <th>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</th>
+                        <th>
+                            <a href="{{ path('tool_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i>
+                            </a>
+                            </th>
+                        <th>
+                            <a class="delete-row" href="{{ path('tool_delete', { 'id': entity.id }) }}">
+                            <i class="fa fa-trash-o"></i>
+                            </a>
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div><!-- table-responsive -->
         <ul>
         <li>
-            <a href="{{ path('tool_new') }}">
-                Ajouter un outil
+            <a href="{{ path('tool_new') }}"class="btn btn-primary">Ajouter un outil </a>
             </a>
         </li>
     </ul>

@@ -1,14 +1,14 @@
 {% extends 'PfeToolBundle::layout.html.twig' %}
 
+{% block title_page %}<i class="glyphicon glyphicon-cloud-upload"></i> Ajouter un nouvel Outil{% endblock %}
+
 {% block content -%}
-    <h1>Ajouter un nouvel Outil </h1>
 
     {{ form(form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('tool') }}">
-            Retour à la liste
+        <a href="{{ path('tool') }}" class="btn btn-primary">Retour à la liste</a>
         </a>
     </li>
 </ul>

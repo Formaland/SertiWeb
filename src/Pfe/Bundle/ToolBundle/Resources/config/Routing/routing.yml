@@ -5,3 +5,7 @@ pfe_tool_homepage:
 pfe_tool_page:
     pattern:  /tools
     defaults: { _controller: PfeToolBundle:Home:index }
+
+ajout:
+    pattern:  /new
+    defaults: { _controller: PfeToolBundle:Tool:createCreateForm }

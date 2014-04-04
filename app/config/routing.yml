@@ -1,3 +1,8 @@
+pfe_reclam:
+    resource: "@PfeReclamBundle/Resources/config/routing.yml"
+    host:     tech.serti-web.local
+    prefix:   /
+
 pfe_tool:
     resource: "@PfeToolBundle/Resources/config/Routing/routing.yml"
     host:     tech.serti-web.local
@@ -10,5 +15,10 @@ pfe_web_bundle:
 
 tool:
     resource: "@PfeToolBundle/Controller/"
+    host:     tech.serti-web.local
+    prefix:   /
+
+reclam:
+    resource: "@PfeReclamBundle/Controller/"
     host:     tech.serti-web.local
     prefix:   /

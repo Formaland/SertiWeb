@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 
             new Pfe\Bundle\WebBundle\PfeWebBundle(),
             new Pfe\Bundle\ToolBundle\PfeToolBundle(),
+            new Pfe\Bundle\ReclamBundle\PfeReclamBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
