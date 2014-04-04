@@ -1,0 +1,49 @@
+{% extends 'PfeToolBundle::layout.html.twig' %}
+
+{% block content -%}
+    <h1>Liste des Outils</h1>
+
+    <table class="records_list" border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom De l'outil </th>
+                <th>Fournisseur Outil </th>
+                <th>N° d'inventaire </th>
+                <th>N° Pièce LEONI </th>
+                <th>Date d'entrée </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('tool_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.toolname }}</td>
+                <td>{{ entity.supplierName }}</td>
+                <td>{{ entity.inventoryNumber }}</td>
+                <td>{{ entity.leoniNbr }}</td>
+                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('tool_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('tool_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('tool_new') }}">
+                Ajouter un outil
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

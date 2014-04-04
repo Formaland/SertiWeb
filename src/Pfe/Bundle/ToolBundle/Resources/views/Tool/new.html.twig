@@ -1,0 +1,15 @@
+{% extends 'PfeToolBundle::layout.html.twig' %}
+
+{% block content -%}
+    <h1>Ajouter un nouvel Outil </h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tool') }}">
+            Retour à la liste
+        </a>
+    </li>
+</ul>
+{% endblock %}

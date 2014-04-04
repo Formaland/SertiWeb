@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title_head %}Administration{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    {% stylesheets output='compiled/backend/main.css' filter='cssrewrite'
+    'bundles/pfetool/css/style.default.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+
+    {% include 'PfeToolBundle:Include:sidebar.html.twig' %}
+
+    <div class="mainpanel">
+
+        {% include 'PfeToolBundle:Include:header.html.twig' %}
+
+        <div class="pageheader">
+            <h2>{% block title_page %}<i class="fa fa-dashboard"></i>Tableau de board <span>Subtitle goes here...</span>{% endblock %}</h2>
+        </div>
+
+        <div class="contentpanel">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div><!-- mainpanel -->
+</section>
+
+{% javascripts output='compiled/main.js'
+'bundles/pfetool/js/jquery-1.10.2.min.js'
+'bundles/pfetool/js/jquery-migrate-1.2.1.min.js'
+'bundles/pfetool/js/bootstrap.min.js'
+'bundles/pfetool/js/modernizr.min.js'
+'bundles/pfetool/js/jquery.sparkline.min.js'
+'bundles/pfetool/js/toggles.min.js'
+'bundles/pfetool/js/retina.min.js'
+'bundles/pfetool/js/jquery.cookies.js'
+'bundles/pfetool/js/custom.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+</body>
+</html>
