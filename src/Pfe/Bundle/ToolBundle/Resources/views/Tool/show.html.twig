@@ -29,20 +29,26 @@
                 <th>Date d'entrée </th>
                 <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
             </tr>
+            <tr>
+                <th>Active / En attente </th>
+                <td>{{ entity.enabled }}</td>
+            </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('tool') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('tool_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
+          <li>  <a href="{{ path('tool_edit', { 'id': entity.id }) }}">
+                <div class="btn-group mr10">
+                    <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Archive">
+                        <i class="glyphicon glyphicon-hdd"></i>
+                    </button>
+            </a>
+
+            <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Delete">
+                <i class="glyphicon glyphicon-trash"></i>
+            </button>
+            </div>
+</li>
+            <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

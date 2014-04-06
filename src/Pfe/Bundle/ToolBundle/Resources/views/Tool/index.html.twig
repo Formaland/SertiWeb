@@ -4,15 +4,23 @@
 {% block content -%}
     <div class="clearfix mb30"></div>
         <div class="table-responsive">
+            <div id="table1_wrapper" class="dataTables_wrapper" role="grid">
+            <div id="table1_filter" class="dataTables_filter">
+                <label>
+                    Search:
+                    <input type="text" aria-controls="table1">
+                </label>
+            </div>
             <table class="table" id="table2">
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th >Nom De l'outil </th>
+                    <th >Nom de l'outil </th>
                     <th>Fournisseur Outil </th>
                     <th>N° d'inventaire </th>
                     <th>N° Pièce LEONI </th>
                     <th>Date d'entrée </th>
+                    <th>Active / En attente</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,6 +32,26 @@
                         <th>{{ entity.inventoryNumber }}</th>
                         <th>{{ entity.leoniNbr }}</th>
                         <th>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</th>
+                        <th>  {% if entity.enabled == 1  %}
+                            <div class="col-xs-4 control-label">
+                                <div class="toggle toggle-success" style="height: 20px; width: 50px;">
+                                        <div class="toggle-inner" style="width: 80px; margin-left: 0px;">
+                                            <div class="toggle-on active" style="height: 20px; width: 100px; text-align: center; text-indent: -10px; line-height: 20px;">Oui
+                                            </div>
+                                        </div>
+                                </div> {% elseif entity.enabled == 0  %}
+                            </div>
+                                        <div class="col-xs-4 control-label">
+                                            <div class="toggle-blob" style="height: 20px; width: 20px; margin-left: -10px;">
+                                            </div>
+                                            <div class="toggle-off" style="height: 20px; width: 100px; margin-left: -10px; text-align: center; text-indent: 10px; line-height: 20px;">Non
+                                            </div>
+                                        </div>
+
+                                    {% endif %}
+
+                             </div>
+                        </th>
                         <th>
                             <a href="{{ path('tool_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i>
                             </a>
@@ -37,6 +65,7 @@
                 {% endfor %}
                 </tbody>
             </table>
+                </div>
         </div><!-- table-responsive -->
         <ul>
         <li>

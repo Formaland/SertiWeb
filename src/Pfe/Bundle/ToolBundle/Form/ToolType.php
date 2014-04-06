@@ -20,6 +20,7 @@ class ToolType extends AbstractType
             ->add('inventoryNumber')
             ->add('leoniNbr')
             ->add('date')
+            ->add('enabled')
         ;
     }
     

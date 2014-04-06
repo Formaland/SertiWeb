@@ -56,6 +56,12 @@ class Tool
      */
     private $date;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="enabled", type="string", length=100)
+     */
+    protected  $enabled;
 
     /**
      * Get id
@@ -180,5 +186,28 @@ class Tool
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Tool
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }
