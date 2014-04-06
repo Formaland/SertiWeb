@@ -1,0 +1,38 @@
+{% extends 'PfeReclamBundle::layout.html.twig' %}
+
+{% block title_head %}Réclamation{% endblock %}
+{% block title_page %}<i class="glyphicon glyphicon-cloud-upload"></i> Réclamation {{ entity.reclamRef }}{% endblock %}
+
+{% block content -%}
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Référence Réclamation</th>
+                <td>{{ entity.reclamRef }}</td>
+            </tr>
+            <tr>
+                <th>Date Réclamation</th>
+                <td>{{ entity.reclamDate|date('Y-m-d') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('reclam') }}">
+            Retour à la liste
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('reclam_edit', { 'id': entity.id }) }}">
+            Modifier
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

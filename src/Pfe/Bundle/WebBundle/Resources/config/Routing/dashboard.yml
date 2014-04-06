@@ -1,7 +1,7 @@
 pfe_web_homepage:
-    pattern:  /
+    pattern: /
     defaults: { _controller: PfeWebBundle:Dashboard:index }
 
 pfe_web_dashboard:
-    pattern:  /dashboard
+    pattern: /dashboard
     defaults: { _controller: PfeWebBundle:Dashboard:index }

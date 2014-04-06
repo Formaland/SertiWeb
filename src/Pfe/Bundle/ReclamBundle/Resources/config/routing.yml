@@ -1,0 +1,11 @@
+pfe_reclam_homepage:
+    pattern:  /
+    defaults: { _controller: PfeReclamBundle:Default:index }
+
+pfe_reclam_page:
+    pattern:  /reclam
+    defaults: { _controller: PfeReclamBundle:Default:index }
+
+ajout:
+    pattern: /new
+    defaults: { _controller: PfeReclamBundle:Reclam:createCreateForm }

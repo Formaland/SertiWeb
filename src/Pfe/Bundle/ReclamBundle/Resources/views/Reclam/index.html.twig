@@ -1,0 +1,50 @@
+{% extends 'PfeReclamBundle::layout.html.twig' %}
+
+{% block title_page %}<i class="fa fa-list"></i> Liste des Réclamation{% endblock %}
+{% block content -%}
+    <div class="clearfix mb30"></div>
+    <div class="table-responsive">
+        <div id="table1_wrapper" class="dataTables_wrapper" role="grid">
+            <div id="table1_filter" class="dataTables_filter">
+                <label>
+                    Search:
+                    <input type="text" aria-controls="table1">
+                </label>
+            </div>
+            <table class="table" id="table2">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Référence Réclamation </th>
+                    <th>Date Réclamation</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <th><a href="{{ path('reclam_show', { 'id': entity.id }) }}">{{ entity.id }}</a></th>
+                        <th>{{ entity.reclamRef }}</th>
+                        <th>{% if entity.reclamDate %}{{ entity.reclamDate|date('Y-m-d H:i:s') }}{% endif %}</th>
+
+                        <th>
+                            <a href=""{{ path('reclam_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i>
+                            </a>
+                        </th>
+                        <th>
+                            <a class="delete-row" href="{{ path('reclam_show', { 'id': entity.id }) }}">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div><!-- table-responsive -->
+    <ul>
+        <li>
+            <a href="{{ path('reclam_new') }}" class="btn btn-primary">Ajouter une réclamation </a>
+            </a>
+        </li>
+    </ul>
+{% endblock %}

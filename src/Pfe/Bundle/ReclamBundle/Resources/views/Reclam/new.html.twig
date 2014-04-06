@@ -1,0 +1,15 @@
+{% extends 'PfeReclamBundle::layout.html.twig' %}
+
+{% block title_page %}<i class="glyphicon glyphicon-cloud-upload"></i> Ajouter une nouvelle Réclamation{% endblock %}
+{% block content -%}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('reclam') }}">
+            Retour à la liste
+        </a>
+    </li>
+</ul>
+{% endblock %}
