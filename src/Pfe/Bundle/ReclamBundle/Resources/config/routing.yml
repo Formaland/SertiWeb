@@ -1,3 +1,0 @@
-pfe_reclam_homepage:
-    pattern:  /reclam
-    defaults: { _controller: PfeReclamBundle:Default:index }
