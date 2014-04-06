@@ -4,7 +4,22 @@
 {% block content -%}
 
     {{ form(form) }}
-
+<div class="contentpanel">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-btns">
+                <a href="#" class="panel-close">&times;</a>
+                <a href="#" class="minimize">&minus;</a>
+            </div>
+            <div class="logopanel">
+                <h1><span>[</span> Taper votre réclamation <span>]</span></h1>
+            </div><!-- logopanel -->
+        </div>
+        <div class="panel-body">
+            <textarea id="wysiwyg" placeholder="Enter text here..." class="form-control" rows="10"></textarea>
+        </div>
+    </div>
+    </div>
         <ul class="record_actions">
     <li>
         <a href="{{ path('reclam') }}">

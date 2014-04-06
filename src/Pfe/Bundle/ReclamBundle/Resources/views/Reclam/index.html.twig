@@ -24,7 +24,7 @@
                     <tr>
                         <th><a href="{{ path('reclam_show', { 'id': entity.id }) }}">{{ entity.id }}</a></th>
                         <th>{{ entity.reclamRef }}</th>
-                        <th>{% if entity.reclamDate %}{{ entity.reclamDate|date('Y-m-d H:i:s') }}{% endif %}</th>
+                        <th>{% if entity.reclamDate %}{{ entity.reclamDate|date('Y-m-d') }}{% endif %}</th>
 
                         <th>
                             <a href=""{{ path('reclam_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i>
