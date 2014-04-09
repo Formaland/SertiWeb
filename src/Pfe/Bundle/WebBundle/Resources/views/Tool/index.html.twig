@@ -1,4 +1,5 @@
-{% extends 'PfeToolBundle::layout.html.twig' %}
+{% extends 'PfeWebBundle::layout.html.twig' %}
+{% import 'PfeWebBundle:Macro:button.html.twig' as macro %}
 
 {% block title_page %}<i class="fa fa-list"></i> Liste des outils{% endblock %}
 {% block content -%}
@@ -50,9 +51,8 @@
                                     {% endif %}
                         </th>
                         <th>
-                            <a href="{{ path('tool_edit', { 'id': entity.id }) }}">
-                            <i class="fa fa-pencil" ></i>
-                            </a>
+                            {{ macro.button('pfe_tool_index', 'edit') }}
+
                             </th>
                         <th>
                             <a class="delete-row" href="#">
@@ -67,8 +67,7 @@
         </div><!-- table-responsive -->
         <ul>
         <li>
-            <a href="{{ path('tool_new') }}"class="btn btn-primary">Ajouter un outil </a>
-            </a>
+            {{ macro.button('pfe_tool_index', 'new') }}
         </li>
 
 

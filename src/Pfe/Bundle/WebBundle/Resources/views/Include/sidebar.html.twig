@@ -1,10 +1,10 @@
 <div class="leftpanel">
 
     <div class="logopanel">
-        <h1><span>[{% image '@PfeWebBundle/Resources/public/images/Logo.png' %}
-                <img src="{{ asset_url }}" alt="Example" width="100" height="50"/>
+        <h1><span>{% image '@PfeToolBundle/Resources/public/images/logo1.png' %}
+                <img src="{{ asset_url }}" alt="Example" width="200" height="70"/>
                 {% endimage %}
-                ]</span></h1>
+                </span></h1>
     </div><!-- logopanel -->
 
     <div class="leftpanelinner">
@@ -31,7 +31,30 @@
         <h5 class="sidebartitle">Navigation</h5>
 
         <ul class="nav nav-pills nav-stacked nav-bracket">
-            <li><a href="{{ path('pfe_web_homepage') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+            <li><a href="{{ path('pfe_web_dashboard') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+            <li class="nav-parent"><a href="#"><i class="fa fa-edit"></i> <span>Gestion des Outils</span></a>
+                <ul class="children">
+                    <li><a href="{{ path('pfe_tool_index') }}"><i class="fa fa-caret-right"></i>Ajouter </a></li>
+                    <li><a href="form-layouts.html"><i class="fa fa-caret-right"></i> Modifier</a></li>
+                    <li><a href="form-validation.html"><i class="fa fa-caret-right"></i>Supprimer</a></li>
+                    <li><a href="form-wizards.html"><i class="fa fa-caret-right"></i>Consulter</a></li>
+                     </ul>
+            </li>
+            <li class="nav-parent"><a href="#"><i class="fa fa-edit"></i> <span>Gestion des Réclamation</span></a>
+                <ul class="children">
+                    <li><a href="general-forms.html"><i class="fa fa-caret-right"></i> Par Outil</a></li>
+                    <li><a href="form-layouts.html"><i class="fa fa-caret-right"></i> Par Contact</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-parent"><a href="#"><i class="fa fa-file-text"></i> <span>Check-List</span></a>
+                <ul class="children">
+                    <li><a href="general-forms.html"><i class="fa fa-caret-right"></i> Par Outil</a></li>
+                    <li><a href="form-layouts.html"><i class="fa fa-caret-right"></i> Par Contact</a></li>
+                </ul>
+            </li>
         </ul>
+
     </div><!-- leftpanelinner -->
 </div><!-- leftpanel -->
+

@@ -1,0 +1,8 @@
+{% macro button(route, action) %}
+    {% if action == 'edit' %}
+        <a class="btn btn-primary" href="{{ path(route) }}" ><i class="fa fa-edit"></i></a>
+    {% endif %}
+    {% if action == 'new' %}
+        <a class="btn btn-success" href="{{ path(route) }}" ><i class="fa fa-plus"></i></a>
+    {% endif %}
+{% endmacro %}

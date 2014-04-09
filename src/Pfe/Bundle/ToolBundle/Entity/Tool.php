@@ -63,6 +63,10 @@ class Tool
      */
     protected  $enabled;
 
+    public function __construct(){
+        $this->enabled = false;
+    }
+
     /**
      * Get id
      *

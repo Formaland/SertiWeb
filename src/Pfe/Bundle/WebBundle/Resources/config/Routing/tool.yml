@@ -1,0 +1,7 @@
+pfe_tool_index:
+    pattern:  /
+    defaults: { _controller: PfeToolBundle:Tool:index }
+
+pfe_tool_new:
+    pattern:  /new
+    defaults: { _controller: PfeToolBundle:Tool:new }
