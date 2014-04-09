@@ -5,16 +5,15 @@
     <div class="clearfix mb30"></div>
         <div class="table-responsive">
             <div id="table1_wrapper" class="dataTables_wrapper" role="grid">
-            <div id="table1_filter" class="dataTables_filter">
-                <label>
-                    Search:
-                    <input type="text" aria-controls="table1">
-                </label>
-            </div>
+
             <table class="table" id="table2">
+                <div> <form class="searchform" action="http://themepixels.com/demo/webpage/bracket/index.html" method="post">
+                        <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+                    </form>
+                </div>
                 <thead>
                 <tr>
-                    <th>Id</th>
+                       <th></th>
                     <th >Nom de l'outil </th>
                     <th>Fournisseur Outil </th>
                     <th>N° d'inventaire </th>
@@ -26,12 +25,12 @@
                 <tbody>
                 {% for entity in entities %}
                     <tr>
-                        <th><a href="{{ path('tool_show', { 'id': entity.id }) }}">{{ entity.id }}</a></th>
+                        <th><a href="#">Détail</a></th>
                         <th>{{ entity.toolname }}</th>
                         <th>{{ entity.supplierName }}</th>
                         <th>{{ entity.inventoryNumber }}</th>
                         <th>{{ entity.leoniNbr }}</th>
-                        <th>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</th>
+                        <th>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</th>
                         <th>  {% if entity.enabled == 1  %}
                             <div class="col-xs-4 control-label">
                                 <div class="toggle toggle-success" style="height: 20px; width: 50px;">
@@ -49,16 +48,15 @@
                                         </div>
 
                                     {% endif %}
-
-                             </div>
                         </th>
                         <th>
-                            <a href="{{ path('tool_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i>
+                            <a href="{{ path('tool_edit', { 'id': entity.id }) }}">
+                            <i class="fa fa-pencil" ></i>
                             </a>
                             </th>
                         <th>
-                            <a class="delete-row" href="{{ path('tool_delete', { 'id': entity.id }) }}">
-                            <i class="fa fa-trash-o"></i>
+                            <a class="delete-row" href="#">
+                            <i class="fa fa-trash-o" data-toggle="modal" data-target=".bs-example-modal-sm" ></i>
                             </a>
                         </th>
                     </tr>
@@ -72,5 +70,21 @@
             <a href="{{ path('tool_new') }}"class="btn btn-primary">Ajouter un outil </a>
             </a>
         </li>
+
+
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                            <h4 class="modal-title">Voulez-vous Supprimer ?</h4>
+                        </div>
+        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" >Confirmer</button>
+        <button aria-hidden="true"  class="btn btn-primary" class="close" data-dismiss="modal" >Annuler</button>
+                    </div>
+                </div>
+            </div>
     </ul>
     {% endblock %}
+
+
