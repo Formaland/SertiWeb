@@ -1,0 +1,7 @@
+dashboard:
+  name: Tableau de board
+
+tool:
+  name: Gestion des Outils
+  index: Tout les outils
+  new: Ajouter un outil

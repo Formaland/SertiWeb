@@ -1,0 +1,3 @@
+pfe_tool_bundle_tool:
+    resource: "@PfeToolBundle/Resources/config/Routing/tool.yml"
+    prefix:   /

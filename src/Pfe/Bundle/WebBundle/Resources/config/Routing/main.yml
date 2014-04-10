@@ -1,7 +1,7 @@
-pfe_web_include_dashboard:
+pfe_web_bundle:
     resource: "@PfeWebBundle/Resources/config/Routing/dashboard.yml"
     prefix:   /
 
-pfe_web_include_tool:
-    resource: "@PfeWebBundle/Resources/config/Routing/tool.yml"
+pfe_tool_bundle:
+    resource: "@PfeToolBundle/Resources/config/routing.yml"
     prefix:   /tools

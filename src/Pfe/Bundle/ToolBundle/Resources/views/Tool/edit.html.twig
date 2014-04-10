@@ -1,0 +1,17 @@
+{% extends 'PfeWebBundle::layout.html.twig' %}
+
+{% block title_page %}<i class="fa fa-pencil"></i> Modifier un outil{% endblock %}
+
+{% block content %}
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('pfe_tool_index') }}">
+            Retour à la liste
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

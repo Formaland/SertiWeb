@@ -4,9 +4,6 @@ namespace Pfe\Bundle\ToolBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pfe\Bundle\ToolBundle\Entity\Tool;
 use Pfe\Bundle\ToolBundle\Form\ToolType;
 
@@ -19,7 +16,7 @@ class ToolController extends Controller
 
         $entities = $em->getRepository('PfeToolBundle:Tool')->findAll();
 
-        return $this->render('PfeWebBundle:Tool:index.html.twig', array(
+        return $this->render('PfeToolBundle:Tool:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -35,7 +32,7 @@ class ToolController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tool_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_tool_show', array('id' => $entity->getId())));
         }
 
         return $this->render('PfeToolBundle:Tool:new.html.twig' ,array(
@@ -47,7 +44,7 @@ class ToolController extends Controller
     private function createCreateForm(Tool $entity)
     {
         $form = $this->createForm(new ToolType(), $entity, array(
-            'action' => $this->generateUrl('tool_create'),
+            'action' => $this->generateUrl('pfe_tool_create'),
             'method' => 'POST',
         ));
 
@@ -61,10 +58,10 @@ class ToolController extends Controller
         $entity = new Tool();
         $form   = $this->createCreateForm($entity);
 
-        return array(
+        return $this->render('PfeToolBundle:Tool:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     public function showAction($id)
@@ -79,10 +76,10 @@ class ToolController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('PfeToolBundle:Tool:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     public function editAction($id)
@@ -98,17 +95,17 @@ class ToolController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('PfeToolBundle:Tool:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     private function createEditForm(Tool $entity)
     {
         $form = $this->createForm(new ToolType(), $entity, array(
-            'action' => $this->generateUrl('tool_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_tool_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -134,14 +131,14 @@ class ToolController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tool_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_tool_edit', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('PfeToolBundle:Tool:edit.html.twig' ,array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     public function deleteAction(Request $request, $id)
@@ -161,13 +158,13 @@ class ToolController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('tool'));
+        return $this->redirect($this->generateUrl('pfe_tool_index'));
     }
 
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('tool_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_tool_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

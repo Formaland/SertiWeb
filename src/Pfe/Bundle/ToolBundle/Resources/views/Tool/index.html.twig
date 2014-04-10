@@ -1,0 +1,49 @@
+{% extends 'PfeWebBundle::layout.html.twig' %}
+
+{% import 'PfeWebBundle:Macro:button.html.twig' as button %}
+
+{% block title_page %}
+    <i class="fa fa-wrench"></i> {{ 'title.page.index'|trans({}, 'tool') }}
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ 'filter.title'|trans({}, 'tool') }}</h3>
+        </div>
+        <div class="panel-body">
+
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ 'table.title'|trans({}, 'tool') }}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped mb30">
+                    <thead>
+                        <tr>
+                            <th>{{ 'table.column.name'|trans({}, 'tool') }}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td>{{ entity.toolName }}</td>
+                                <td>
+                                    {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
+                                    {{ button.delete(path('pfe_tool_edit', { 'id': entity.id })) }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

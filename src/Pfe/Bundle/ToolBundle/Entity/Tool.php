@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Tool
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="Pfe\Bundle\ToolBundle\Entity\ToolRepository")
+ * @ORM\Table(name="pfe_tools")
+ * @ORM\Entity(repositoryClass="Pfe\Bundle\ToolBundle\Entity\Repository\ToolRepository")
  */
 class Tool
 {

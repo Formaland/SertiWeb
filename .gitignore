@@ -1,3 +1,6 @@
+/web/uploads/
+/web/images/
+/web/compiled/
 /web/bundles/
 /app/bootstrap*
 /app/cache/*

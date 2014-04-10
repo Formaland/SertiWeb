@@ -1,8 +1,44 @@
-{% macro button(route, action) %}
-    {% if action == 'edit' %}
-        <a class="btn btn-primary" href="{{ path(route) }}" ><i class="fa fa-edit"></i></a>
-    {% endif %}
-    {% if action == 'new' %}
-        <a class="btn btn-success" href="{{ path(route) }}" ><i class="fa fa-plus"></i></a>
-    {% endif %}
+{% macro new(route, text) %}
+    <a class="btn btn-success" href="{{ route }}" >
+        <i class="fa fa-plus"></i>
+        {% if text %}
+            {{ text|trans({}, 'button') }}
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{% macro show(route, text) %}
+    <a class="btn btn-info" href="{{ route }}" >
+        <i class="fa fa-info"></i>
+        {% if text %}
+            {{ text|trans({}, 'button') }}
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{% macro edit(route, text) %}
+    <a class="btn btn-primary" href="{{ route }}" >
+        <i class="fa fa-edit"></i>
+        {% if text %}
+            {{ text|trans({}, 'button') }}
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{% macro delete(route, text) %}
+    <a class="btn btn-danger" href="{{ route }}" >
+        <i class="fa fa-trash-o"></i>
+        {% if text %}
+            {{ text|trans({}, 'button') }}
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{% macro custon(type, route, icon, text) %}
+    <a class="btn btn-{{ type }}" href="{{ route }}" >
+        <i class="fa fa-{{ icon }}"></i>
+        {% if text %}
+            {{ text|trans({}, 'button') }}
+        {% endif %}
+    </a>
 {% endmacro %}
