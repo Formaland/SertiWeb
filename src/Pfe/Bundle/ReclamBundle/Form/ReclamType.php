@@ -17,6 +17,8 @@ class ReclamType extends AbstractType
         $builder
             ->add('reclamRef')
             ->add('reclamDate')
+            ->add('contenu')
+
         ;
     }
     

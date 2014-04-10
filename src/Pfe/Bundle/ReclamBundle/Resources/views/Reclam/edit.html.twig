@@ -1,16 +1,14 @@
 {% extends 'PfeReclamBundle::layout.html.twig' %}
-
 {% block title_page %}<i class="fa fa-pencil"></i> Modifier une réclamation{% endblock %}
 {% block content -%}
-
-    {{ form(edit_form) }}
-
+     {{ form_widget(edit_form) }}
+    >
         <ul class="record_actions">
     <li>
         <a href="{{ path('reclam') }}">
             Retour à la liste
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li>{{ form_widget(delete_form) }}</li>
 </ul>
 {% endblock %}

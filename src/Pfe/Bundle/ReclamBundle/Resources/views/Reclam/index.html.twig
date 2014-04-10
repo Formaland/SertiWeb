@@ -17,6 +17,7 @@
                     <th>Id</th>
                     <th>Référence Réclamation </th>
                     <th>Date Réclamation</th>
+                    <th>Contenu</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,7 @@
                         <th><a href="{{ path('reclam_show', { 'id': entity.id }) }}">{{ entity.id }}</a></th>
                         <th>{{ entity.reclamRef }}</th>
                         <th>{% if entity.reclamDate %}{{ entity.reclamDate|date('Y-m-d') }}{% endif %}</th>
+                        <th>{{ entity.contenu }}</th>
 
                         <th>
                             <a href=""{{ path('reclam_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i>

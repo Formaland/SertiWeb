@@ -35,6 +35,15 @@ class Reclam
      */
     private $reclamDate;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="string", length=100)
+     */
+    protected $contenu;
+
+
+
 
     /**
      * Get id
@@ -91,4 +100,29 @@ class Reclam
     {
         return $this->reclamDate;
     }
+
+
+    /**
+     * Set contenu
+     *
+     * @param string $contenu
+     * @return Reclam
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
 }
