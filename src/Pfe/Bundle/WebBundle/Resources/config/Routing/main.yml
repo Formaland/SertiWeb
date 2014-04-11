@@ -1,7 +1,11 @@
-pfe_web_include_dashboard:
+pfe_web_bundle:
     resource: "@PfeWebBundle/Resources/config/Routing/dashboard.yml"
     prefix:   /
 
-pfe_web_user:
+pfe_user_bundle:
     resource: "@PfeUserBundle/Resources/config/routing.yml"
-    prefix:   /user
+    prefix:   /users
+
+pfe_tool_bundle:
+    resource: "@PfeToolBundle/Resources/config/routing.yml"
+    prefix:   /tools

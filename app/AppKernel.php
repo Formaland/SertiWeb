@@ -17,8 +17,11 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+
             new Pfe\Bundle\WebBundle\PfeWebBundle(),
             new Pfe\Bundle\UserBundle\PfeUserBundle(),
+            new Pfe\Bundle\ToolBundle\PfeToolBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

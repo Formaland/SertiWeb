@@ -1,0 +1,17 @@
+title:
+  page:
+    index: Gestion des outils
+    new: Ajouter un outil
+    edit: Modification d'outil
+  head:
+    index: Administration - Gestion des outils
+    new: Administration - Ajouter un outil
+    edit: Administration - Modification d'outil
+
+filter:
+  title: Recherche d'outils
+
+table:
+  title: Liste des outils
+  column:
+    name: Nom

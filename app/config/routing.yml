@@ -6,3 +6,8 @@ pfe_web_bundle_admin:
     resource: "@PfeWebBundle/Resources/config/Routing/main.yml"
     host:     admin.serti-web.local
     prefix:   /
+
+tool:
+    resource: "@PfeToolBundle/Controller/"
+    host:     tech.serti-web.local
+    prefix:   /

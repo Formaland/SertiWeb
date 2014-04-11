@@ -1,6 +1,11 @@
 /web/bundles/
+/web/compiled/*
+/web/images/*
+/web/uploads/*
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
 /vendor/
 /.idea/
+app/config/parameters.yml
+composer.lock

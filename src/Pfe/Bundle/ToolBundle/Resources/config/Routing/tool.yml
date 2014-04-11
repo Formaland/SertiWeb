@@ -1,0 +1,27 @@
+pfe_tool_index:
+    pattern:  /
+    defaults: { _controller: PfeToolBundle:Tool:index }
+
+pfe_tool_new:
+    pattern:  /new
+    defaults: { _controller: PfeToolBundle:Tool:new }
+
+pfe_tool_show:
+    pattern:  /{id}/show
+    defaults: { _controller: PfeToolBundle:Tool:show }
+
+pfe_tool_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: PfeToolBundle:Tool:edit }
+
+pfe_tool_create:
+    pattern:  /create
+    defaults: { _controller: PfeToolBundle:Tool:create }
+
+pfe_tool_update:
+    pattern:  /{id}/update
+    defaults: { _controller: PfeToolBundle:Tool:update }
+
+pfe_tool_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: PfeToolBundle:Tool:delete }

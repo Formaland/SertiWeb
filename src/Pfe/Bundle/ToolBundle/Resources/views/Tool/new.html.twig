@@ -1,0 +1,21 @@
+{% extends 'PfeWebBundle::layout.html.twig' %}
+
+{% block title_head %}
+    {{ 'title.head.new'|trans({}, 'tool') }}
+{% endblock %}
+
+{% block title_page %}
+    <i class="fa fa-wrench"></i> {{ 'title.page.new'|trans({}, 'tool') }}
+{% endblock %}
+
+{% block content %}
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('pfe_tool_index') }}" class="btn btn-primary">Retour à la liste</a>
+        </a>
+    </li>
+</ul>
+{% endblock %}

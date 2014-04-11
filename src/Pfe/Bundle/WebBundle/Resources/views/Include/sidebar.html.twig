@@ -1,7 +1,9 @@
 <div class="leftpanel">
 
     <div class="logopanel">
-        <h1><span>[</span> Serti-Web <span>]</span></h1>
+        {% image '@PfeWebBundle/Resources/public/images/logo.png' output='images/logo.png' %}
+        <img src="{{ asset_url }}" alt="Example" width="200" height="70"/>
+        {% endimage %}
     </div><!-- logopanel -->
 
     <div class="leftpanelinner">
@@ -27,8 +29,8 @@
 
         <h5 class="sidebartitle">Navigation</h5>
 
-        <ul class="nav nav-pills nav-stacked nav-bracket">
-            <li><a href="{{ path('pfe_web_homepage') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-        </ul>
+        {% render controller("PfeWebBundle:Menu:sidebar", {'route': app.request.attributes.get('_route')}) %}
+
     </div><!-- leftpanelinner -->
 </div><!-- leftpanel -->
+
