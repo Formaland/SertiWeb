@@ -1,0 +1,30 @@
+pfe_user_index:
+    pattern:  /
+    defaults: { _controller: "PfeUserBundle:User:index" }
+
+pfe_user_show:
+    pattern:  /{token}/show
+    defaults: { _controller: "PfeUserBundle:User:show" }
+
+pfe_user_new:
+    pattern:  /new
+    defaults: { _controller: "PfeUserBundle:User:new" }
+
+pfe_user_create:
+    pattern:  /create
+    defaults: { _controller: "PfeUserBundle:User:create" }
+    requirements: { _method: post }
+
+pfe_user_edit:
+    pattern:  /{token}/edit
+    defaults: { _controller: "PfeUserBundle:User:edit" }
+
+pfe_user_update:
+    pattern:  /{token}/update
+    defaults: { _controller: "PfeUserBundle:User:update" }
+    requirements: { _method: post|put }
+
+pfe_user_delete:
+    pattern:  /{token}/delete
+    defaults: { _controller: "PfeUserBundle:User:delete" }
+    requirements: { _method: post|delete }

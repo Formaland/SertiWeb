@@ -6,7 +6,7 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /** 
  * @ORM\Entity(repositoryClass="Pfe\Bundle\UserBundle\Entity\Repository\UserRepository")
- * @ORM\Table(name="pfe_user")
+ * @ORM\Table(name="pfe_users")
  */
 class User implements AdvancedUserInterface, \Serializable
 {
@@ -72,6 +72,11 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Column(name="locked", type="boolean")
      */
     private $locked;
+
+    /**
+     * @ORM\Column(name="default_locale", type="string", length=10)
+     */
+    private $default_locale;
 
     function __construct()
     {
@@ -342,6 +347,21 @@ class User implements AdvancedUserInterface, \Serializable
         return true;
     }
 
+    public function getDefaultLocale() {
+
+        return $this->default_locale;
+
+    }
+
+    public function setDefaultLocale($default_locale) {
+
+        $this->default_locale = $default_locale;
+
+    }
+
+    public function getFullName() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 
     public function serialize()
     {
@@ -349,8 +369,7 @@ class User implements AdvancedUserInterface, \Serializable
             $this->id,
             $this->username,
             $this->password,
-            // see section on salt below
-            // $this->salt,
+            $this->default_locale,
         ));
     }
 
@@ -360,6 +379,7 @@ class User implements AdvancedUserInterface, \Serializable
             $this->id,
             $this->username,
             $this->password,
+            $this->default_locale,
             // see section on salt below
             // $this->salt
             ) = unserialize($serialized);

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ 'title.head'|trans({}, 'security') }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    {% stylesheets output='compiled/backend/login.css' filter='cssrewrite'
+        'bundles/pfeweb/css/style.default.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+</head>
+<body class="notfound">
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+
+    <div class="lockedpanel">
+        <div class="loginuser">
+            <img id="avatar" src="" alt="gravatar" />
+        </div>
+        <div class="logged">
+            <h4><i class="fa fa-lock"></i>{{ 'title.page'|trans({}, 'security') }}</h4>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div><!-- lockedpanel -->
+
+</section>
+
+{% javascripts output='compiled/login.js'
+        'bundles/pfeweb/js/jquery-1.10.2.min.js'
+        'bundles/pfeweb/js/jquery-migrate-1.2.1.min.js'
+        'bundles/pfeweb/js/bootstrap.min.js'
+        'bundles/pfeweb/js/modernizr.min.js'
+        'bundles/pfeweb/js/retina.min.js'
+        'bundles/pfeweb/js/md5.js'
+        'bundles/pfeweb/js/custom.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script>
+
+    var src = 'http://www.gravatar.com/avatar/' + hex_md5('directeur.general@web-solution.tn') + '?s=150';
+    $('#avatar').attr('src', src);
+
+    function updateGravatar(email){
+        var src = 'http://www.gravatar.com/avatar/' + hex_md5(email) + '?s=150';
+        $('#avatar').attr('src', src);
+    };
+
+</script>
+
+</body>
+</html>

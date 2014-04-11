@@ -1,7 +1,3 @@
 pfe_user:
-    pattern:  /
-    defaults: { _controller: PfeUserBundle:User:index }
-
-pfe_user_index:
-    pattern:  /index
-    defaults: { _controller: PfeUserBundle:User:index }
+    resource: "@PfeUserBundle/Resources/config/routing/user.yml"
+    prefix:   /

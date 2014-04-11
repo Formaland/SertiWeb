@@ -1,0 +1,22 @@
+title:
+  page:
+    index: Gestion des utilisateurs
+    new: Ajouter un utilisateur
+    edit: Modification d'utilisateur
+  head:
+    index: Administration - Gestion des utilisateurs
+    new: Administration - Ajouter un utilisateur
+    edit: Administration - Modification d'utilisateur
+
+filter:
+  title: Recherche d'utilisateurs
+
+table:
+  title: Liste des utilisateurs
+  column:
+    registration_number: Numéro d'imatriculation
+    first_name: Nom
+    last_name: Prènom
+    email: Email
+    role: Role
+    enabled: Statut

@@ -2,6 +2,11 @@ dashboard:
   name: Tableau de board
 
 tool:
-  name: Gestion des Outils
+  name: Gestion des outils
   index: Tout les outils
   new: Ajouter un outil
+
+user:
+  name: Gestion des utilisateurs
+  index: Tout les utilisateurs
+  new: Ajouter un utilisateur

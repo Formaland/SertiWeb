@@ -1,0 +1,10 @@
+title:
+  head: Verabreichung - Anschluss
+  page: Einloggen
+
+placeholder:
+  username: Amtliches Kennzeichen
+  password: Passwort
+
+action:
+  login: Anschluss

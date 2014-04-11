@@ -1,0 +1,10 @@
+{% extends 'PfeWebBundle::login.html.twig' %}
+
+{% block content %}
+    <form method="post" action="{{ path('pfe_user_login_check') }}">
+        <input type="text" id="username" class="form-control" placeholder="{{ 'placeholder.username'|trans({}, 'security') }}" name="_username" onchange="updateGravatar(value)" value="{{ last_username }}"/>
+        <input type="password" id="password" class="form-control" placeholder="{{ 'placeholder.password'|trans({}, 'security') }}" name="_password" style="margin-top: 10px" />
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+        <button class="btn btn-success btn-block">{{ 'action.login'|trans({}, 'security') }}</button>
+    </form>
+{% endblock %}

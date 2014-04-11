@@ -1,7 +1,12 @@
 parameters:
-#    pfe_web.example.class: Pfe\Bundle\WebBundle\Example
+    pfe_locale_listener.class: Pfe\Bundle\WebBundle\Listener\LocaleListener
 
 services:
-#    pfe_web.example:
-#        class: %pfe_web.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    ws_front_locale_listener:
+        class: %pfe_locale_listener.class%
+        arguments: ["%kernel.default_locale%"]
+        calls:
+            - [ setContainer, [@service_container] ]
+            - [ setCurrentUser, [@security.context] ]
+        tags:
+            - { name: kernel.event_subscriber }

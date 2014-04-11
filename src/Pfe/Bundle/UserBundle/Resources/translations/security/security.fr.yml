@@ -1,0 +1,12 @@
+title:
+  head: Administration - Connexion
+  page: Connexion
+
+placeholder:
+  username: Numéro d'immatriculation
+  password: Mot de passe
+
+action:
+  login: Se connecter
+
+ROLE_ADMIN: Administrateur

@@ -1,0 +1,10 @@
+title:
+  head: Administration - Login
+  page: Login
+
+placeholder:
+  username: Registration Number
+  password: Password
+
+action:
+  login: Connect
