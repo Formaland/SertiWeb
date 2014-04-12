@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Homologation</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Fil_type</th>
+                <td>{{ entity.filtype }}</td>
+            </tr>
+            <tr>
+                <th>Section</th>
+                <td>{{ entity.section }}</td>
+            </tr>
+            <tr>
+                <th>Standard</th>
+                <td>{{ entity.standard }}</td>
+            </tr>
+            <tr>
+                <th>Fil</th>
+                <td>{{ entity.fil }}</td>
+            </tr>
+            <tr>
+                <th>Filwidth</th>
+                <td>{{ entity.filWidth }}</td>
+            </tr>
+            <tr>
+                <th>Isolationheight</th>
+                <td>{{ entity.isolationHeight }}</td>
+            </tr>
+            <tr>
+                <th>Isolationwidth</th>
+                <td>{{ entity.isolationWidth }}</td>
+            </tr>
+            <tr>
+                <th>Stepdch</th>
+                <td>{{ entity.stepDch }}</td>
+            </tr>
+            <tr>
+                <th>Stepich</th>
+                <td>{{ entity.stepIch }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ entity.note }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('homologation') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('homologation_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Homologation list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fil_type</th>
+                <th>Section</th>
+                <th>Standard</th>
+                <th>Fil</th>
+                <th>Filwidth</th>
+                <th>Isolationheight</th>
+                <th>Isolationwidth</th>
+                <th>Stepdch</th>
+                <th>Stepich</th>
+                <th>Note</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('homologation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.filtype }}</td>
+                <td>{{ entity.section }}</td>
+                <td>{{ entity.standard }}</td>
+                <td>{{ entity.fil }}</td>
+                <td>{{ entity.filWidth }}</td>
+                <td>{{ entity.isolationHeight }}</td>
+                <td>{{ entity.isolationWidth }}</td>
+                <td>{{ entity.stepDch }}</td>
+                <td>{{ entity.stepIch }}</td>
+                <td>{{ entity.note }}</td>
+                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('homologation_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('homologation_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('homologation_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

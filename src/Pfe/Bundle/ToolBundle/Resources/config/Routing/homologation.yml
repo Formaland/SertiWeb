@@ -1,0 +1,30 @@
+homologation:
+    pattern:  /homologation
+    defaults: { _controller: "PfeToolBundle:Homologation:index" }
+
+homologation_show:
+    pattern:  /homologation/{id}/show
+    defaults: { _controller: "PfeToolBundle:Homologation:show" }
+
+homologation_new:
+    pattern:  /homologation/new
+    defaults: { _controller: "PfeToolBundle:Homologation:new" }
+
+homologation_create:
+    pattern:  /homologation/create
+    defaults: { _controller: "PfeToolBundle:Homologation:create" }
+    requirements: { _method: post }
+
+homologation_edit:
+    pattern:  /homologation/{id}/edit
+    defaults: { _controller: "PfeToolBundle:Homologation:edit" }
+
+homologation_update:
+    pattern:  /homologation/{id}/update
+    defaults: { _controller: "PfeToolBundle:Homologation:update" }
+    requirements: { _method: post|put }
+
+homologation_delete:
+    pattern:  /homologation/{id}/delete
+    defaults: { _controller: "PfeToolBundle:Homologation:delete" }
+    requirements: { _method: post|delete }
