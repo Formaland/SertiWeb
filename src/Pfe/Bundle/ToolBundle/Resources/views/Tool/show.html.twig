@@ -1,7 +1,7 @@
 {% extends 'PfeWebBundle::layout.html.twig' %}
 
+{% block title_page %}<i class="fa fa-table"></i> Fiche de l'outil : {{ entity.toolname }}{% endblock %}
 {% block content -%}
-    <h1>Tool</h1>
 
     <table class="record_properties">
         <tbody>
@@ -33,22 +33,79 @@
                 <th>Active / En attente </th>
                 <td>{{ entity.enabled }}</td>
             </tr>
+        <tr>
+            <th> Segment</th>
+            <td></td>
+        </tr>
         </tbody>
     </table>
-
+<table>
+    <tbody>
+    <tr>
+        <th><i  data-toggle="modal" data-target=".bs-example-modal-static">
+                <button class="btn btn-warning-alt">
+                    <i>Annexe 4</i>
+                </button>
+            </i></th>
+        <th><i  data-toggle="modal" data-target=".bs-example-modal-photo">
+                <button class="btn btn-danger-alt">
+                    <i>Fiche Homologation</i>
+                </button>
+            </i></th>
+        <th>
+            <div></div><i  data-toggle="modal" data-target=".bs-example-modal-lg">
+                <button class="btn btn-success-alt">
+                    <i>Annexe 5</i>
+                </button>
+            </i></th>
+    </tr>
+    </tbody>
+</table>
         <ul class="record_actions">
           <li>  <a href="{{ path('pfe_tool_edit', { 'id': entity.id }) }}">
                 <div class="btn-group mr10">
-                    <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Archive">
-                        <i class="glyphicon glyphicon-hdd"></i>
+                    <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Modifier">
+                        <i class="fa fa-edit"></i>
                     </button>
             </a>
 
-            <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Delete">
-                <i class="glyphicon glyphicon-trash"></i>
+            <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Supprimer">
+                <i class="fa fa-trash-o"></i>
+                {{ form(delete_form) }}
             </button>
             </div>
 </li>
             <li>{{ form(delete_form) }}</li>
 </ul>
+
+<div class="modal fade bs-example-modal-photo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-photo-viewer">
+        <div class="modal-content">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+            {% image '@PfeWebBundle/Resources/public/images/homolog.jpg' output='images/homolog.jpg' %}
+            <img src="{{ asset_url }}" alt="Example" width="900" height="600"/>
+            {% endimage %}
+            </div></div></div>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                    <h4 class="modal-title">Annexe 5</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bs-example-modal-static" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                    <h4 class="modal-title"> Annexe 4 </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
