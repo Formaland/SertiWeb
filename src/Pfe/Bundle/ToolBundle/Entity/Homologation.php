@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Homologation
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Pfe\Bundle\ToolBundle\Entity\HomologationRepository")
+ * @ORM\Entity(repositoryClass="Pfe\Bundle\ToolBundle\Entity\Repository\HomologationRepository")
  */
 class Homologation
 {

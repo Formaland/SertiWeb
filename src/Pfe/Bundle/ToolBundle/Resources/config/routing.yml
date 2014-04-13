@@ -1,7 +1,7 @@
 pfe_tool_bundle_tool:
     resource: "@PfeToolBundle/Resources/config/Routing/tool.yml"
-    prefix:   /
+    prefix:   /tools
 
 pfe_tool_bundle_homologation:
     resource: "@PfeToolBundle/Resources/config/Routing/homologation.yml"
-    prefix:   /
+    prefix:   /homologation

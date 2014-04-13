@@ -3,16 +3,16 @@ Created by: @themepixels
 URL: http://themepixels.com/
 */
 
-@import url('../../../bundles/pfetool/css/bootstrap.min.css');
-@import url('../../../bundles/pfetool/css/bootstrap-override.css');
-@import url('../../../bundles/pfetool/css/jquery-ui-1.10.3.css');
-@import url('../../../bundles/pfetool/css/font-awesome.min.css');
-@import url('../../../bundles/pfetool/css/animate.min.css');
-@import url('../../../bundles/pfetool/css/animate.delay.css');
-@import url('../../../bundles/pfetool/css/toggles.css');
-@import url('../../../bundles/pfetool/css/chosen.css');
-@import url('../../../bundles/pfetool/css/lato.css');
-@import url('../../../bundles/pfetool/css/roboto.css');
+@import url('../../../bundles/pfeweb/css/bootstrap.min.css');
+@import url('../../../bundles/pfeweb/css/bootstrap-override.css');
+@import url('../../../bundles/pfeweb/css/jquery-ui-1.10.3.css');
+@import url('../../../bundles/pfeweb/css/font-awesome.min.css');
+@import url('../../../bundles/pfeweb/css/animate.min.css');
+@import url('../../../bundles/pfeweb/css/animate.delay.css');
+@import url('../../../bundles/pfeweb/css/toggles.css');
+@import url('../../../bundles/pfeweb/css/chosen.css');
+@import url('../../../bundles/pfeweb/css/lato.css');
+@import url('../../../bundles/pfeweb/css/roboto.css');
 
 body {
    background: #1d2939;
@@ -109,7 +109,7 @@ strong {
 
 .searchform input {
    width: 250px;
-   background: #fff url(../../../bundles/pfetool/images/icon-search.png) no-repeat 95% center;
+   background: #fff url(../../../bundles/pfeweb/images/icon-search.png) no-repeat 95% center;
    float: left;
    padding: 18px 20px;
    border: 0;
@@ -503,7 +503,7 @@ strong {
 }
 
 .nav-bracket > li.nav-parent > a {
-   background: transparent url(../../../bundles/pfetool/images/plus-white.png) no-repeat 96% center; 
+   background: transparent url(../../../bundles/pfeweb/images/plus-white.png) no-repeat 96% center; 
 }
 
 .nav-bracket > li.nav-parent > a:focus {
@@ -518,12 +518,12 @@ strong {
 .nav-bracket > li.nav-parent > a:active {
    color: #1d2939;
    background-color: #fff;
-   background-image: url(../../../bundles/pfetool/images/plus.png);
+   background-image: url(../../../bundles/pfeweb/images/plus.png);
 }
 
 .nav-bracket > li.nav-active > a {
    background-color: #fff;
-   background-image: url(../../../bundles/pfetool/images/minus.png);
+   background-image: url(../../../bundles/pfeweb/images/minus.png);
 	color: #1d2939;
 	-moz-box-shadow: 0 3px 0 rgba(0,0,0,0.2);
 	-webkit-box-shadow: 0 3px 0 rgba(0,0,0,0.2);
@@ -531,7 +531,7 @@ strong {
 }
 
 .nav-bracket > li.nav-active > a:hover {
-	background-image: url(../../../bundles/pfetool/images/minus.png);
+	background-image: url(../../../bundles/pfeweb/images/minus.png);
     background-repeat: no-repeat;
 }
 
@@ -553,15 +553,15 @@ strong {
 }
 
 .nav-bracket > li.nav-parent.active > a {
-   background-image: url(../../../bundles/pfetool/images/plus.png); 
+   background-image: url(../../../bundles/pfeweb/images/plus.png); 
 }
 
 .nav-bracket > li.nav-active.active > a {
-   background-image: url(../../../bundles/pfetool/images/minus.png); 
+   background-image: url(../../../bundles/pfeweb/images/minus.png); 
 }
 
 .nav-bracket > li.nav-active.active > a:hover {
-   background-image: url(../../../bundles/pfetool/images/minus.png); 
+   background-image: url(../../../bundles/pfeweb/images/minus.png); 
 }
 
 .nav-bracket li .fa,
@@ -725,7 +725,8 @@ strong {
 }
 
 .pageheader .fa-file-text {
-	padding: 6px 10px ; }
+	padding: 6px 10px;`
+}
 
 .pageheader .fa-map-marker {
    padding: 6px 12px;
@@ -2967,11 +2968,11 @@ div.error label.error:before {
 }
 
 .signinpanel .uname {
-   background: #fff url(../../../bundles/pfetool/images/user.png) no-repeat 95% center; 
+   background: #fff url(../../../bundles/pfeweb/images/user.png) no-repeat 95% center; 
 }
 
 .signinpanel .pword {
-   background: #fff url(../../../bundles/pfetool/images/locked.png) no-repeat 95% center; 
+   background: #fff url(../../../bundles/pfeweb/images/locked.png) no-repeat 95% center; 
 }
 
 .signinpanel .btn {
@@ -3630,7 +3631,7 @@ div.error label.error:before {
 }
 
 .chosen-container-single .chosen-single div b {
-	background: url(../../../bundles/pfetool/images/dropdown-arrow.png) no-repeat 8px 15px;
+	background: url(../../../bundles/pfeweb/images/dropdown-arrow.png) no-repeat 8px 15px;
 }
 
 .chosen-container-active.chosen-with-drop .chosen-single div {

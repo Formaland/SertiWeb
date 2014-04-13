@@ -21,14 +21,19 @@ class HomologationController extends Controller
      */
     public function indexAction()
     {
+        //var_dump('ici je suis dans l\'action index<br>');
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PfeToolBundle:Homologation')->findAll();
 
+        //var_dump('Variable Entities<br>'); // je demande un retour de text
+        //var_dump($entities); // je demande le retour de la variable entities pour voir ce quelle contient
+        //die(); // jarrete le serveur
         return $this->render('PfeToolBundle:Homologation:index.html.twig', array(
             'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new Homologation entity.
      *
@@ -39,7 +44,13 @@ class HomologationController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        //var_dump($entity);
+        //print('mon formulaire a bien envoyer mon objet a l\'action<br>');
+
+        if ($form->isValid()) { // ici le if verifie si mon from est valide
+            // la je suis dans mon if don mon form est surrement valide
+            //die('mon formulaire est valide');
+            // donc jai demandé a arreté le server et me faire un retour 'mon formulaire est valide'
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -47,6 +58,9 @@ class HomologationController extends Controller
             return $this->redirect($this->generateUrl('homologation_show', array('id' => $entity->getId())));
         }
 
+        //ici je suis hors de mon if don mon formulaire n'est pas valide
+        // alors j'ai arréter le server et je lui demande de me faire un retour 'mon formulaire est invalide!!'
+        //die('mon formulaire est invalide !!');
         return $this->render('PfeToolBundle:Homologation:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),

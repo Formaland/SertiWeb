@@ -1,6 +1,6 @@
 <?php
 
-namespace Pfe\Bundle\ToolBundle\Entity;
+namespace Pfe\Bundle\ToolBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

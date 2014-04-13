@@ -1,111 +1,156 @@
 {% extends 'PfeWebBundle::layout.html.twig' %}
 
-{% block title_page %}<i class="fa fa-table"></i> Fiche de l'outil : {{ entity.toolname }}{% endblock %}
+{% block title_page %}<i class="fa fa-table"></i> Fiche technique de l'outil : {{ entity.toolname }}{% endblock %}
 {% block content -%}
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom De l'outil </th>
-                <td>{{ entity.toolname }}</td>
-            </tr>
-            <tr>
-                <th>Fournisseur Outil </th>
-                <td>{{ entity.supplierName }}</td>
-            </tr>
-            <tr>
-                <th>N° d'inventaire</th>
-                <td>{{ entity.inventoryNumber }}</td>
-            </tr>
-            <tr>
-                <th>N° Pièce LEONI </th>
-                <td>{{ entity.leoniNbr }}</td>
-            </tr>
-            <tr>
-                <th>Date d'entrée </th>
-                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Active / En attente </th>
-                <td>{{ entity.enabled }}</td>
-            </tr>
-        <tr>
-            <th> Segment</th>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
-<table>
-    <tbody>
-    <tr>
-        <th><i  data-toggle="modal" data-target=".bs-example-modal-static">
-                <button class="btn btn-warning-alt">
-                    <i>Annexe 4</i>
-                </button>
-            </i></th>
-        <th><i  data-toggle="modal" data-target=".bs-example-modal-photo">
-                <button class="btn btn-danger-alt">
-                    <i>Fiche Homologation</i>
-                </button>
-            </i></th>
-        <th>
-            <div></div><i  data-toggle="modal" data-target=".bs-example-modal-lg">
-                <button class="btn btn-success-alt">
-                    <i>Annexe 5</i>
-                </button>
-            </i></th>
-    </tr>
-    </tbody>
-</table>
-        <ul class="record_actions">
-          <li>  <a href="{{ path('pfe_tool_edit', { 'id': entity.id }) }}">
-                <div class="btn-group mr10">
-                    <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Modifier">
-                        <i class="fa fa-edit"></i>
-                    </button>
-            </a>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group has-error">
+                                <label class="control-label">Nom De l'outil</label>
+                                <input type="text" value="{{ entity.toolname }}" id="readonlyinput" class="form-control" readonly="readonly" />
+                            </div>
+                        </div><!-- col-sm-4 -->
+                        <div class="col-sm-3">
+                            <div class="form-group has-error">
+                                <label class="control-label">Fournisseur Outil</label>
+                                <input type="text" value="{{ entity.supplierName }}" id="readonlyinput" class="form-control" readonly="readonly" />
+                            </div>
+                        </div><!-- col-sm-4 -->
+                        <div class="col-sm-3">
+                            <div class="form-group has-error">
+                                <label class="control-label">Date d'entrée</label>
+                                <input type="text" value="{{ entity.date|date('Y-m-d') }}" id="readonlyinput" class="form-control" readonly="readonly" />
+                            </div>
+                        </div><!-- col-sm-3 -->
+                    </div><!-- row -->
 
-            <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Supprimer">
-                <i class="fa fa-trash-o"></i>
-                {{ form(delete_form) }}
-            </button>
-            </div>
-</li>
-            <li>{{ form(delete_form) }}</li>
-</ul>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group has-error">
+                                <label class="control-label">N° d'inventaire</label>
+                                <input type="text" value="{{ entity.inventoryNumber }}" id="readonlyinput" class="form-control" readonly="readonly" />
+                            </div>
+                        </div><!-- col-sm-4 -->
+                        <div class="col-sm-3">
+                            <div class="form-group has-error">
+                                <label class="control-label">N° Pièce LEONI</label>
+                                <input type="text" value="{{ entity.leoniNbr }}" id="readonlyinput" class="form-control" readonly="readonly" />
+                            </div>
+                        </div><!-- col-sm-4 -->
+                        <div class="col-sm-3">
+                            <div class="form-group has-error">
+                                <label class="control-label">Segment</label>
+                                <input type="text" value="BMW" id="readonlyinput" class="form-control" readonly="readonly" />
+                            </div>
+                        </div><!-- col-sm-4 -->
+                        <div class="col-sm-3">
+                            <div  class="record_actions">
+                                <div class="btn-group mr10">
+                                <a href="{{ path('pfe_tool_edit', { 'id': entity.id }) }}">
+                  <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Modifier">
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                </a></div>
+                                        <div class="btn-group mr10"><a href="{{ path('pfe_tool_delete', { 'id': entity.id }) }}">
+                                                <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Supprimer">
+                                                    <i class="fa fa-trash-o"></i>
+                                                    {{ form_widget(delete_form) }}
+                                                </button>
+                                            </a></div>
 
-<div class="modal fade bs-example-modal-photo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-photo-viewer">
-        <div class="modal-content">
-            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
-            {% image '@PfeWebBundle/Resources/public/images/homolog.jpg' output='images/homolog.jpg' %}
-            <img src="{{ asset_url }}" alt="Example" width="900" height="600"/>
-            {% endimage %}
-            </div></div></div>
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
-                    <h4 class="modal-title">Annexe 5</h4>
-                </div>
+                                    <div>{{ form(delete_form) }}</div>
+
+                            </div>
+                        </div><!-- col-sm-4 -->
+                    </div><!-- row -->
+                    <table class="record_properties">
+                        <tbody>
+                        <tr>
+                            <th>Active / En attente </th>
+                            <td>{{ entity.enabled }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th><i  data-toggle="modal" data-target=".bs-example-modal-static">
+                                    <button class="btn btn-warning-alt">
+                                        <i>Annexe 4</i>
+                                    </button>
+                                </i></th>
+                            <th>
+                                <div><i  data-toggle="modal" data-target=".bs-example-modal-lg">
+                                    <button class="btn btn-success-alt">
+                                        <i>Annexe 5</i>
+                                    </button>
+                                </i></div></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="panel-btns">
+                                        <a href="#" class="panel-close">&times;</a>
+                                        <a href="#" class="minimize">&minus;</a>
+                                    </div>
+                                    <h4 class="panel-title">Homologation</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <i  data-toggle="modal" data-target=".bs-example-modal-photo">
+                                        <button class="btn btn-danger-alt">
+                                            <i>Fiche Homologation</i>
+                                        </button>
+                                    </i>
+                                </div><!-- panel-body -->
+                            </div><!-- panel -->
+                        </div><!-- col-md-6 -->
+
+
+                    <div class="modal fade bs-example-modal-photo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-photo-viewer">
+                            <div class="modal-content">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                                {% image '@PfeWebBundle/Resources/public/images/homolog.jpg' output='images/homolog.jpg' %}
+                                <img src="{{ asset_url }}" alt="Example" width="900" height="600"/>
+                                {% endimage %}
+                            </div></div></div>
+                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                                    <h4 class="modal-title">Annexe 5</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade bs-example-modal-static" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                                    <h4 class="modal-title"> Annexe 4 </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- panel-body -->
             </div>
         </div>
-    </div>
 
-    <div class="modal fade bs-example-modal-static" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
-                    <h4 class="modal-title"> Annexe 4 </h4>
-                </div>
-            </div>
+        </div><!-- row -->
+
         </div>
-    </div>
+
+        </div><!-- mainpanel -->
+
 
 {% endblock %}
