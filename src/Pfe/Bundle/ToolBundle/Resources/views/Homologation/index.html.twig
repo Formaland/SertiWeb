@@ -1,30 +1,39 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Homologation list</h1>
+{% block title_page %}<i class="fa fa-wrench"></i> Données de sertissage {% endblock %}
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fil_type</th>
+{% block content -%}
+<div class="row">
+    <div class="col-md-12">
+     <div class="table-responsive">
+        <table class="table table-striped mb30">
+            <thead>
+            <tr style="text-align: center">
+                <th>Type de Fils</th>
                 <th>Section</th>
-                <th>Standard</th>
-                <th>Fil</th>
-                <th>Filwidth</th>
-                <th>Isolationheight</th>
-                <th>Isolationwidth</th>
-                <th>Stepdch</th>
-                <th>Stepich</th>
-                <th>Note</th>
+                <th>Critère</th>
+                <th colspan="2" style="text-align: center">Fil</th>
+                <th colspan="2" style="text-align: center">Isolation</th>
+                <th colspan="2" style="text-align: center">Etape</th>
+                <th>Remarque</th>
                 <th>Date</th>
                 <th>Actions</th>
+            </tr>
+            <tr style="text-align: center">
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Hauteur</th>
+                <th>Largeur</th>
+                <th>Hauteur</th>
+                <th>Largeur</th>
+                <th>DCH</th>
+                <th>ICH</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('homologation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <tr style="text-align: center">
                 <td>{{ entity.filtype }}</td>
                 <td>{{ entity.section }}</td>
                 <td>{{ entity.standard }}</td>
@@ -35,14 +44,14 @@
                 <td>{{ entity.stepDch }}</td>
                 <td>{{ entity.stepIch }}</td>
                 <td>{{ entity.note }}</td>
-                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('homologation_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('homologation_show', { 'id': entity.id }) }}">Afficher</a>
                     </li>
                     <li>
-                        <a href="{{ path('homologation_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('homologation_edit', { 'id': entity.id }) }}">Modifier</a>
                     </li>
                 </ul>
                 </td>
@@ -50,11 +59,12 @@
         {% endfor %}
         </tbody>
     </table>
-
+     </div><!-- table-responsive -->
+        </div></div>
         <ul>
         <li>
             <a href="{{ path('homologation_new') }}">
-                Create a new entry
+                Ajouter une nouvelle homologation
             </a>
         </li>
     </ul>
