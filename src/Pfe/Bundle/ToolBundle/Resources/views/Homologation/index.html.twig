@@ -1,0 +1,71 @@
+{% extends 'PfeWebBundle::layout.html.twig' %}
+
+{% block title_page %}<i class="fa fa-wrench"></i> Données de sertissage {% endblock %}
+
+{% block content -%}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped mb30">
+                    <thead>
+                    <tr style="text-align: center">
+                        <th>Type de Fils</th>
+                        <th>Section</th>
+                        <th>Critère</th>
+                        <th colspan="2" style="text-align: center">Fil</th>
+                        <th colspan="2" style="text-align: center">Isolation</th>
+                        <th colspan="2" style="text-align: center">Etape</th>
+                        <th>Remarque</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr style="text-align: center">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Hauteur</th>
+                        <th>Largeur</th>
+                        <th>Hauteur</th>
+                        <th>Largeur</th>
+                        <th>DCH</th>
+                        <th>ICH</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for entity in entities %}
+                        <tr style="text-align: center">
+                            <td>{{ entity.filtype }}</td>
+                            <td>{{ entity.section }}</td>
+                            <td>{{ entity.standard }}</td>
+                            <td>{{ entity.fil }}</td>
+                            <td>{{ entity.filWidth }}</td>
+                            <td>{{ entity.isolationHeight }}</td>
+                            <td>{{ entity.isolationWidth }}</td>
+                            <td>{{ entity.stepDch }}</td>
+                            <td>{{ entity.stepIch }}</td>
+                            <td>{{ entity.note }}</td>
+                            <td>{% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('homologation_show', { 'id': entity.id }) }}">Afficher</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('homologation_edit', { 'id': entity.id }) }}">Modifier</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div><!-- table-responsive -->
+        </div></div>
+    <ul>
+        <li>
+            <a href="{{ path('homologation_new') }}">
+                Ajouter une nouvelle homologation
+            </a>
+        </li>
+    </ul>
+{% endblock %}

@@ -24,26 +24,106 @@
             <div class="table-responsive">
                 <table class="table table-striped mb30">
                     <thead>
-                        <tr>
-                            <th>{{ 'table.column.name'|trans({}, 'tool') }}</th>
-                            <th></th>
-                        </tr>
+                    <tr>
+                        <th>{{ 'table.column.name'|trans({}, 'tool') }}</th>
+                        <th></th>
+                    </tr>
                     </thead>
                     <tbody>
-                        {% for entity in entities %}
-                            <tr>
-                                <td>{{ entity.toolName }}</td>
-                                <td>
-                                    {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
-                                    {{ button.delete(path('pfe_tool_edit', { 'id': entity.id })) }}
-                                </td>
-                            </tr>
-                        {% endfor %}
+                    {% for entity in entities %}
+                        <tr>
+                            <td>{{ entity.toolName }}</td>
+                            <td>
+                                {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
+                                <i data-toggle="modal" data-target=".bs-example-modal-sm" >
+                                    {{ button.delete(path('pfe_tool_delete', { 'id': entity.id })) }}
+                                </i>
+                                <i data-toggle="modal" data-target=".bs-example-modal-photo">
+                                    <button class="btn btn-orange">
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </button>
+                                </i>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                        <h4 class="modal-title">Voulez-vous Supprimer ?</h4>
+                    </div>
+                    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" >Confirmer</button>
+                    <button aria-hidden="true" class="btn btn-primary" class="close" data-dismiss="modal" >Annuler</button>
+                </div>
+            </div></div>
+
+        <div class="modal fade bs-example-modal-photo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-photo-viewer">
+                <div class="modal-content">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                    <html>
+                    <head></head>
+                    <body><h1>Tool</h1>
+
+                    <table class="record_properties">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Nom De l'outil </th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th>Fournisseur Outil </th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th>N° d'inventaire</th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th>N° Pièce LEONI </th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th>Date d'entrée </th>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th>Active / En attente </th>
+                            <td> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <ul class="record_actions">
+                        <li> <a href=#>
+                                <div class="btn-group mr10">
+                                    <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Modifier">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                </div></a>
+                            <div >
+                                <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Supprimer">
+                                    <i class="fa fa-trash-o"></i>
+
+                                </button>
+                            </div>
+                        </li>
+
+                    </ul></body>
+                    </html>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 {% endblock %}
-
-
