@@ -44,6 +44,36 @@ class MenuController extends Controller {
                     )
                 )
             ),
+            array(
+                'routes' => array('homologation', 'homologation_new', 'homologation_edit'),
+                'icon' => 'edit',
+                'title' => 'homologation.name',
+                'submenu' => array(
+                    array(
+                        'route' => 'homologation',
+                        'title' => 'homologation.index',
+                    ),
+                    array(
+                        'route' => 'homologation_new',
+                        'title' => 'homologation.new',
+                    )
+                )
+            ),
+            array(
+                'routes' => array('checklist', 'checklist_new', 'checklist_edit'),
+                'icon' => 'tasks',
+                'title' => 'checklist.name',
+                'submenu' => array(
+                    array(
+                        'route' => 'checklist',
+                        'title' => 'checklist.index',
+                    ),
+                    array(
+                        'route' => 'checklist_new',
+                        'title' => 'checklist.new',
+                    )
+                )
+            ),
         );
 
         return $this->render('PfeWebBundle:Menu:sidebar.html.twig', array(

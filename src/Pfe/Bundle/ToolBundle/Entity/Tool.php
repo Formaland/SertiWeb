@@ -63,9 +63,23 @@ class Tool
      */
     protected  $enabled;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\ToolBundle\Entity\Homologation", inversedBy="tool")
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     */
+    private $homologation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\User", inversedBy="tool")
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     */
+    private $user;
+
     public function __construct(){
         $this->enabled = false;
     }
+
+
 
     /**
      * Get id

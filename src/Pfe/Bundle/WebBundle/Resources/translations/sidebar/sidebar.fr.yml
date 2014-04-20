@@ -10,3 +10,13 @@ user:
   name: Gestion des utilisateurs
   index: Tout les utilisateurs
   new: Ajouter un utilisateur
+
+homologation:
+  name: Gestion Homologations
+  index: Toutes les Homologations
+  new: Ajouter une fiche d'homologation
+
+checklist:
+  name: Gestion des Check_List
+  index: Tous les Check_List
+  new: Ajouter un Check_List

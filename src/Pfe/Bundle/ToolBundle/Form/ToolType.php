@@ -3,24 +3,23 @@
 namespace Pfe\Bundle\ToolBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Pfe\Bundle\ToolBundle\Entity\Tool;
 
-class ToolType extends AbstractType
+    class ToolType extends AbstractType
 {
-        /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('toolname')
-            ->add('supplierName')
-            ->add('inventoryNumber')
-            ->add('leoniNbr')
-            ->add('date')
-            ->add('enabled')
+            ->add('toolname', 'text' ,array('label'  => 'Nom de l\'outil'))
+            ->add('supplierName', 'text' ,array('label'  => 'Date du fournisseur',))
+            ->add('inventoryNumber', 'text')
+            ->add('leoniNbr', 'text')
+            ->add('date',        'datetime',array('label'  => 'Date d\'entrée',))
+            ->add('enabled' )
         ;
     }
     
@@ -39,6 +38,6 @@ class ToolType extends AbstractType
      */
     public function getName()
     {
-        return 'pfe_bundle_toolbundle_tool';
+        return 'pfe_bundle_toolbundle_tooltype';
     }
 }

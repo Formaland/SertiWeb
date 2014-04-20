@@ -1,0 +1,239 @@
+{% extends 'PfeWebBundle::layout.html.twig' %}
+{% import 'PfeWebBundle:Macro:button.html.twig' as button %}
+
+{% block title_page %}<i class="fa fa-check-square-o"></i> Check-List : Points à contrôler  {% endblock %}
+
+{% block content -%}
+
+<div >
+    <table class="table table-striped mb30">
+        <thead>
+            <tr>
+                <th>Point à Vérifier</th>
+                {% for entity in entities %}
+                <td><a href="{{ path('checklist_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>CH</th>
+                {% for entity in entities %}
+                <td>{{ entity.ch }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Cb</th>
+                {% for entity in entities %}
+                <td>{{ entity.cb }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Attributif</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.attributif == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 "></i>
+                    {% endif %}
+                    {% if entity.attributif == 0 %}
+                    <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Abstreifer</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.abstreifer == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 "  ></i>
+                    {% endif %}
+                    {% if entity.abstreifer == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Guidefinger</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.guideFinger == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.guideFinger == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Messer</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.messer == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.messer == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                 </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Drahtcrimp</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.drahtcrimp == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.drahtcrimp == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Isocrimp</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.isocrimp == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.isocrimp == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Ambos</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.ambos == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.ambos == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                 </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Cale</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.cale == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.cale == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Niederhalter</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.niederhalter == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.niederhalter == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Position</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.position == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.position == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Fpr</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.fpr == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.fpr == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Pdek</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.pdek == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.pdek == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Lpr</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.lpr == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.lpr == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Annexe5</th>
+                {% for entity in entities %}
+                <td>
+                    {% if entity.annexe5 == 1 %}
+                        <i class="fa fa-check-square-o" style="color: #00aa00 " ></i>
+                    {% endif %}
+                    {% if entity.annexe5 == 0 %}
+                        <i class="fa fa-times" style="color: #ff0000" ></i>
+                    {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Date</th>
+                {% for entity in entities %}
+                <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th></th>
+                {% for entity in entities %}
+                <td>
+                            <a href="{{ path('checklist_show', { 'id': entity.id }) }}"><i class="fa fa- fa-eye" style="color: #de7504"></i></a> |
+                            <a href="{{ path('checklist_edit', { 'id': entity.id }) }}"><i class="fa fa-edit" style="color: mediumslateblue" ></i></a>
+                </td>
+            {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+        <ul>
+        <li>
+            <a href="{{ path('checklist_new') }}" class="btn btn-success">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

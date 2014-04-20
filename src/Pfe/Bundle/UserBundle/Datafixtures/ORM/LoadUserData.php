@@ -30,9 +30,9 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface {
         $user->setUsername('admin');
         $user->setRegistrationNumber('EM00000');
         $user->setDefaultLocale('fr');
-        $user->setFirstName('Ceif');
-        $user->setLastName('Khedhiri');
-        $user->setEmail('directeur.general@web-solution.tn');
+        $user->setFirstName('Oussama');
+        $user->setLastName('Lahmar');
+        $user->setEmail('oussisgs@gmail.com');
         $user->setRoles(array('ROLE_ADMIN'));
 
         $encoder = $this->container

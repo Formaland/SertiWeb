@@ -32,6 +32,7 @@
                     <tbody>
                     {% for entity in entities %}
                         <tr>
+
                             <td>{{ entity.toolName }}</td>
                             <td>
                                 {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
@@ -43,6 +44,11 @@
                                         <i class="fa fa-arrows-alt"></i>
                                     </button>
                                 </i>
+                                <a href="{{ path('pfe_tool_show' , { 'id': entity.id }) }}">
+                                    <button class="btn btn-lightblue">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </a>
 
                             </td>
                         </tr>
@@ -79,7 +85,7 @@
                         </tr>
                         <tr>
                             <th>Nom De l'outil </th>
-                            <td> </td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>Fournisseur Outil </th>

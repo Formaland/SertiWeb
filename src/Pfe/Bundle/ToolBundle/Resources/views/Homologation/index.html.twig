@@ -1,4 +1,5 @@
 {% extends 'PfeWebBundle::layout.html.twig' %}
+{% import 'PfeWebBundle:Macro:button.html.twig' as button %}
 
 {% block title_page %}<i class="fa fa-wrench"></i> Données de sertissage {% endblock %}
 
@@ -46,14 +47,14 @@
                             <td>{{ entity.note }}</td>
                             <td>{% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</td>
                             <td>
-                                <ul>
-                                    <li>
-                                        <a href="{{ path('homologation_show', { 'id': entity.id }) }}">Afficher</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('homologation_edit', { 'id': entity.id }) }}">Modifier</a>
-                                    </li>
-                                </ul>
+
+                                        {{ button.show(path('homologation_show', { 'id': entity.id })) }}
+                               <!--  <a href="{{ path('homologation_show', { 'id': entity.id }) }}">Afficher</a> -->
+
+                                        {{ button.edit(path('homologation_edit', { 'id': entity.id })) }}
+
+                                      <!--  <a href="{{ path('homologation_edit', { 'id': entity.id }) }}">Modifier</a>-->
+
                             </td>
                         </tr>
                     {% endfor %}
@@ -63,7 +64,7 @@
         </div></div>
     <ul>
         <li>
-            <a href="{{ path('homologation_new') }}">
+            <a href="{{ path('homologation_new') }}" class="btn btn-success">
                 Ajouter une nouvelle homologation
             </a>
         </li>

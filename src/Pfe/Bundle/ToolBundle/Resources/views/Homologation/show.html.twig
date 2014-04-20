@@ -1,16 +1,12 @@
 {% extends 'PfeWebBundle::layout.html.twig' %}
 
-{% block title_page %}<i class="fa fa-table"></i> Fiche d'homologation {% endblock %}
+{% block title_page %}<i class="fa fa-table"></i>Fiche d'homologation {% endblock %}
 
 {% block content -%}
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Fil_type</th>
+                <th>Type de fil</th>
                 <td>{{ entity.filtype }}</td>
             </tr>
             <tr>
@@ -18,55 +14,55 @@
                 <td>{{ entity.section }}</td>
             </tr>
             <tr>
-                <th>Standard</th>
+                <th>Critère</th>
                 <td>{{ entity.standard }}</td>
             </tr>
             <tr>
-                <th>Fil</th>
+                <th>Hauteur de fil</th>
                 <td>{{ entity.fil }}</td>
             </tr>
             <tr>
-                <th>Filwidth</th>
+                <th>Largeur de fil</th>
                 <td>{{ entity.filWidth }}</td>
             </tr>
             <tr>
-                <th>Isolationheight</th>
+                <th>Hauteur d'Isolation</th>
                 <td>{{ entity.isolationHeight }}</td>
             </tr>
             <tr>
-                <th>Isolationwidth</th>
+                <th>Largeur d'Isolation</th>
                 <td>{{ entity.isolationWidth }}</td>
             </tr>
             <tr>
-                <th>Stepdch</th>
+                <th>DCH</th>
                 <td>{{ entity.stepDch }}</td>
             </tr>
             <tr>
-                <th>Stepich</th>
+                <th>ICH</th>
                 <td>{{ entity.stepIch }}</td>
             </tr>
             <tr>
-                <th>Note</th>
+                <th>Remarque</th>
                 <td>{{ entity.note }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+                <th>Date </th>
+                <td>{{ entity.date|date('Y-m-d') }}</td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('homologation') }}">
-            Back to the list
-        </a>
+        <i class="fa fa-mail-reply"><a href="{{ path('homologation') }}">
+            Retour à la liste d'homologation
+        </a></i>
     </li>
     <li>
-        <a href="{{ path('homologation_edit', { 'id': entity.id }) }}">
-            Edit
+        <a class="btn btn-warning-alt" href="{{ path('homologation_edit', { 'id': entity.id }) }}">
+            Modifier
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li> {{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

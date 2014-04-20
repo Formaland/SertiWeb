@@ -1,0 +1,26 @@
+{% extends 'PfeWebBundle::layout.html.twig' %}
+
+{% block title_page %}
+    <i class="fa fa-wrench"></i> {{ 'title.page.index'|trans({}, 'tool') }}
+{% endblock %}
+{% block content %}
+<script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" >
+</script>
+
+
+<script type="text/javascript"
+src="{{ asset('bundles/obhighcharts/js/highcharts/highcharts.js') }}">
+</script>
+
+
+<script type="text/javascript"
+        src="{{ asset('bundles/obhighcharts/js/highcharts/modules/exporting.js') }}">
+</script>
+
+<script type="text/javascript">
+{{ chart(overviewchart) }}
+</script>
+
+<div id="linechart" style="min-width: 400px; height: 400px;"></div>
+       {% endblock %}

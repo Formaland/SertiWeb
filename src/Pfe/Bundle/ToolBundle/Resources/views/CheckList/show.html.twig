@@ -1,0 +1,96 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>CheckList</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Ch</th>
+                <td>{{ entity.ch }}</td>
+            </tr>
+            <tr>
+                <th>Cb</th>
+                <td>{{ entity.cb }}</td>
+            </tr>
+            <tr>
+                <th>Attributif</th>
+                <td>{{ entity.attributif }}</td>
+            </tr>
+            <tr>
+                <th>Abstreifer</th>
+                <td>{{ entity.abstreifer }}</td>
+            </tr>
+            <tr>
+                <th>Guidefinger</th>
+                <td>{{ entity.guideFinger }}</td>
+            </tr>
+            <tr>
+                <th>Messer</th>
+                <td>{{ entity.messer }}</td>
+            </tr>
+            <tr>
+                <th>Drahtcrimp</th>
+                <td>{{ entity.drahtcrimp }}</td>
+            </tr>
+            <tr>
+                <th>Isocrimp</th>
+                <td>{{ entity.isocrimp }}</td>
+            </tr>
+            <tr>
+                <th>Ambos</th>
+                <td>{{ entity.ambos }}</td>
+            </tr>
+            <tr>
+                <th>Cale</th>
+                <td>{{ entity.cale }}</td>
+            </tr>
+            <tr>
+                <th>Niederhalter</th>
+                <td>{{ entity.niederhalter }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ entity.position }}</td>
+            </tr>
+            <tr>
+                <th>Fpr</th>
+                <td>{{ entity.fpr }}</td>
+            </tr>
+            <tr>
+                <th>Pdek</th>
+                <td>{{ entity.pdek }}</td>
+            </tr>
+            <tr>
+                <th>Lpr</th>
+                <td>{{ entity.lpr }}</td>
+            </tr>
+            <tr>
+                <th>Annexe5</th>
+                <td>{{ entity.annexe5 }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('checklist') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('checklist_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

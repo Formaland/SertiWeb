@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Pfe\Bundle\ToolBundle\Entity\Tool;
 use Pfe\Bundle\ToolBundle\Form\ToolType;
+use Ob\HighchartsBundle\Highcharts\Highchart;
 
 class ToolController extends Controller
 {
@@ -24,7 +25,8 @@ class ToolController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Tool();
-        $form = $this->createCreateForm($entity);
+        $request = $this->getRequest();
+         $form = $this->createForm(new ToolType(), $entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -41,28 +43,6 @@ class ToolController extends Controller
         ));
     }
 
-    private function createCreateForm(Tool $entity)
-    {
-        $form = $this->createForm(new ToolType(), $entity, array(
-            'action' => $this->generateUrl('pfe_tool_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
-    }
-
-    public function newAction()
-    {
-        $entity = new Tool();
-        $form   = $this->createCreateForm($entity);
-
-        return $this->render('PfeToolBundle:Tool:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
-    }
 
     public function showAction($id)
     {
@@ -169,5 +149,95 @@ class ToolController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+    public function listeAction($page)
+    {
+        $em = $this ->getDoctrine()->getEntityManager();
+        $total  = $this->getDoctrine()->getRepository('PfeToolBundle:Tool')->createQueryBuilder('p')->getQuery()->getResult();
+        /* total of résultat */
+        $total_articles    = count($total);
+        $articles_per_page = $this->container->getParameter('max_articles_on_listepage');
+        $last_page         = ceil($total_articles / $articles_per_page);
+        $previous_page     = $page > 1 ? $page - 1 : 1;
+        $next_page         = $page < $last_page ? $page + 1 : $last_page;
+         /* résultat  à afficher*/
+         $entities          = $this->getDoctrine()->getRepository('PfeToolBundle:Tool')->createQueryBuilder('p')->setFirstResult(($page * $articles_per_page) - $articles_per_page)->setMaxResults($this->container->getParameter('max_articles_on_listepage'))->getQuery()->getResult();
+        return $this->render('PfeToolBundle:Tool:liste.html.twig', array(
+            'entities' => $entities,
+            'last_page' => $last_page,
+            'previous_page' => $previous_page,
+            'current_page' => $page,
+            'next_page' => $next_page,
+            'total_articles' => $total_articles,
+        ));
+        return $this->render('PfeToolBundle:Tool:liste.html.twig');
+    }
+
+    public function overviewChartAction()
+    {
+        $series = array(
+            array(
+                "name" => "Réclamations",
+                "data" => array(9.1, 10.3, 6.5, 12.2, 5.2, 9.1, 11.1),
+                "type" => "column"
+            ),
+            array(
+                "name" => "Bénéfices pour la France",
+                "data" => array(6.6, 8.2, 0.76, 4.6, 2.1, 4.1, 3.9),
+                "type" => "column"
+            ),
+            array(
+                "name" => "Total des ventes",
+                "data" => array(683, 756, 543, 1208, 617, 990, 1001),
+                "type" => "spline",
+                "yAxis" => 1,
+            ),
+            array(
+                "name" => "Ventes en France",
+                "data" => array(467, 321, 56, 698, 134, 344, 452),
+                "type" => "spline",
+                "yAxis" => 1,
+            )
+        );
+
+        $yData = array(
+            array(
+                'title' => array(
+                    'text'  => "Bénéfices (millions d'euros)",
+                    'style' => array('color' => '#AA4643')
+                ),
+                'opposite' => true,
+            ),
+            array(
+                'title' => array(
+                    'text'  => "Ventes (milliers d'unités)",
+                    'style' => array('color' => '#4572A7')
+                ),
+            ),
+        );
+
+        $dates = array(
+            "21/06", "22/06", "23/06", "24/06", "25/06", "26/06", "27/06"
+        );
+
+        $ob = new Highchart();
+        // ID de l'élement de DOM que vous utilisez comme conteneur
+        $ob->chart->renderTo('linechart'); // The #id of the div where to render the chart
+        $ob->title->text('Suivi de consommation des outils ');
+
+        $ob->yAxis->title(array('text'  => "Vente en milliers"));
+        $ob->yAxis($yData);
+
+        $ob->xAxis->title(array('text'  => "Date du jours"));
+        $ob->xAxis->categories($dates);
+
+        $ob->series($series);
+
+
+        return $this->render('PfeToolBundle:Tool:template.html.twig',
+            array(
+                'overviewchart' => $ob
+            ));
     }
 }

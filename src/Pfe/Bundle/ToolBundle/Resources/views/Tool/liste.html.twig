@@ -1,0 +1,83 @@
+{# src/Pfe/Bundle/ToolBundle/Resources/views/Tool/liste.html.twig #}
+{% extends 'PfeWebBundle::layout.html.twig' %}
+
+{% import 'PfeWebBundle:Macro:button.html.twig' as button %}
+
+{% block title_page %}
+    <i class="fa fa-wrench"></i> {{ 'title.page.index'|trans({}, 'tool') }}
+{% endblock %}
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ 'filter.title'|trans({}, 'tool') }}</h3>
+        </div>
+        <div class="panel-body">
+
+
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ 'table.title'|trans({}, 'tool') }}</h3>
+    </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped mb30">
+                    <thead>
+                    <tr>
+                        <th>{{ 'table.column.name'|trans({}, 'tool') }}</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if entities is not empty %}
+                        {% for key, entity in entities %}
+                            <tr>
+
+                                <td><a href="{{ path('pfe_tool_show', { 'id': entity.id }) }}">{{ entity.toolName }}</a></td>
+                                <td>
+                                    {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
+                                    <i data-toggle="modal" data-target=".bs-example-modal-sm" >
+                                        {{ button.delete(path('pfe_tool_delete', { 'id': entity.id })) }}
+                                    </i>
+                                    <i data-toggle="modal" data-target=".bs-example-modal-photo">
+                                        <button class="btn btn-orange">
+                                            <i class="fa fa-arrows-alt"></i>
+                                        </button>
+                                    </i>
+                                    <a href="{{ path('pfe_tool_show' , { 'id': entity.id }) }}">
+                                        <button class="btn btn-lightblue">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </a>
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        Résultat vide
+                    {% endif %}</tbody>
+                </table>
+                        {% if last_page > 1 %}
+                            <div class="pagination_sector">
+                                <a href="{{ path('article_liste', { 'page': 1 }) }}" class="btn btn-success"> << <span> 1ère </span> </a> <a href="{{ path('article_liste', { 'page': previous_page }) }}" class="btn btn-toolbar"> << <span> Prec | </span> </a>
+
+                               {% for page in 1..last_page %}
+
+                                {% if page == current_page %}
+                                <i class="pagination">  | {{ page }} | </i>{% else %}
+                                <a href="{{ path('article_liste', { 'page': page }) }}">{{ page }}</a>
+                                {% endif %}
+                               {% endfor %}
+                                <a href="{{ path('article_liste', { 'page': next_page }) }}" class="btn btn-toolbar"> <span> | Suiv </span> >> </a> <a href="{{ path('article_liste', { 'page': last_page }) }}" class="btn btn-success"> <span> Dernière </span> >> </a></div>
+                        {% endif %}
+                        <div class="pagination_desc"><strong>{{ total_articles }}</strong> outils enregistrés
+                            {% if last_page > 1 %}
+                                - Page <strong>{{ current_page }}/{{ last_page }}</strong> {% endif %}</div>
+                </div>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
