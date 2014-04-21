@@ -1,0 +1,23 @@
+pfe_reclam_index:
+    pattern:  /
+    defaults: { _controller: PfeToolBundle:Reclam:Reclamindex }
+
+pfe_reclam_show:
+    pattern:  /{id}/show
+    defaults: { _controller: PfeToolBundle:Reclam:Reclamshow }
+
+pfe_reclam_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: PfeToolBundle:Reclam:Reclamedit }
+
+pfe_reclam_create:
+    pattern:  /create
+    defaults: { _controller: PfeToolBundle:Reclam:Reclamcreate }
+
+pfe_reclam_update:
+    pattern:  /{id}/update
+    defaults: { _controller: PfeToolBundle:Reclam:Reclamupdate }
+
+pfe_reclam_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: PfeToolBundle:Reclam:Reclamdelete }

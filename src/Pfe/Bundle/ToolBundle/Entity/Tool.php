@@ -228,4 +228,9 @@ class Tool
     {
         return $this->enabled;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getToolname();
+    }
 }

@@ -74,6 +74,32 @@ class MenuController extends Controller {
                     )
                 )
             ),
+            array(
+                'routes' => array('pfe_reclam_index', 'pfe_reclam_create', 'pfe_reclam_edit'),
+                'icon' => 'tasks',
+                'title' => 'reclamation.name',
+                'submenu' => array(
+                    array(
+                        'route' => 'pfe_reclam_index',
+                        'title' => 'reclamation.index',
+                    ),
+                    array(
+                        'route' => 'pfe_reclam_create',
+                        'title' => 'reclamation.new',
+                    )
+                )
+            ),
+            array(
+                'routes' => array('overviewchart', '', ''),
+                'icon' => 'tasks',
+                'title' => 'consommation.name',
+                'submenu' => array(
+                    array(
+                        'route' => 'overviewchart',
+                        'title' => 'consommation.index',
+                    )
+                )
+            ),
         );
 
         return $this->render('PfeWebBundle:Menu:sidebar.html.twig', array(

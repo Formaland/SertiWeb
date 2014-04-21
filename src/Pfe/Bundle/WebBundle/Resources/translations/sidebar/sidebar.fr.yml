@@ -20,3 +20,12 @@ checklist:
   name: Gestion des Check_List
   index: Tous les Check_List
   new: Ajouter un Check_List
+
+reclamation:
+  name: Gestion des Réclamations
+  index: Tous les Réclamations
+  new: Ajouter une Réclamation
+
+consommation:
+  name: Consommations
+  index: Consulter les graphes

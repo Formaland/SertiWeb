@@ -1,0 +1,64 @@
+{% extends 'PfeWebBundle::layout.html.twig' %}
+
+{% block title_page %}<i class="fa fa-table"></i> Fiche technique de l'outil : {{ entity.reclamRef }}{% endblock %}
+{% block content -%}
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group has-error">
+                            <label class="control-label">Référence</label>
+                            <input type="text" value="{{ entity.reclamRef }}" id="readonlyinput" class="form-control" readonly="readonly" />
+                        </div>
+                    </div><!-- col-sm-4 -->
+                    <div class="col-sm-3">
+                        <div class="form-group has-error">
+                            <label class="control-label">Sujet</label>
+                            <input type="text" value="{{ entity.sujet }}" id="readonlyinput" class="form-control" readonly="readonly" />
+                        </div>
+                    </div><!-- col-sm-4 -->
+                    <div class="col-sm-3">
+                        <div class="form-group has-error">
+                            <label class="control-label">Date d'entrée</label>
+                            <input type="text" value="{{ entity.reclamDate|date('Y-m-d') }}" id="readonlyinput" class="form-control" readonly="readonly" />
+                        </div>
+                    </div><!-- col-sm-3 -->
+                </div><!-- row -->
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group has-error">
+                            <label class="control-label">Description</label>
+                          <textarea id="readonlyinput" class="form-control" readonly="readonly">{{ entity.contenu }}</textarea>
+                        </div>
+                    </div><!-- col-sm-4 -->
+
+
+                    <div class="col-sm-3">
+                        <div class="record_actions">
+                            <div class="btn-group mr10">
+                                <a href="{{ path('pfe_reclam_edit', { 'id': entity.id }) }}">
+                                    <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Modifier">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                </a></div>
+
+
+                        </div>
+                    </div><!-- col-sm-4 -->
+                </div><!-- row -->
+
+                </div><!-- panel-body -->
+            </div>
+        </div>
+
+    </div><!-- row -->
+
+    </div>
+
+    </div><!-- mainpanel -->
+
+
+{% endblock %}

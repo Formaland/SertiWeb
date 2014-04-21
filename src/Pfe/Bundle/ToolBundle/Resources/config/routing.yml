@@ -9,3 +9,7 @@ pfe_tool_bundle_homologation:
 pfe_tool_bundle_CheckList:
     resource: "@PfeToolBundle/Resources/config/Routing/checklist.yml"
     prefix: /checklist
+
+pfe_tool_bundle_reclam:
+    resource: "@PfeToolBundle/Resources/config/Routing/reclam.yml"
+    prefix: /reclams

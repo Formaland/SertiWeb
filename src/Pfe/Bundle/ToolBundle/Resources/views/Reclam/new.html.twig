@@ -1,0 +1,50 @@
+{% extends 'PfeWebBundle::layout.html.twig' %}
+
+{% block title_head %}
+    {{ 'title.head.new'|trans({}, 'tool') }}
+{% endblock %}
+
+{% block title_page %}
+    <i class="fa fa-wrench"></i> {{ 'title.page.new'|trans({}, 'tool') }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+        
+        <div class="col-md-12">
+          <form id="basicForm" method="post"  class="form-horizontal" {{ form_enctype(form) }}>
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-btns">
+                  <a href="#" class="panel-close">&times;</a>
+                  <a href="#" class="minimize">&minus;</a>
+                </div>
+              </div>
+              <div class="panel-body">
+                {{ form_widget(form) }}
+                
+              </div><!-- panel-body -->
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col-sm-9 col-sm-offset-3">
+                    <button class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-default">Reset</button>
+                  </div>
+                </div>
+              </div>
+            
+          </div><!-- panel -->
+          </form>
+          
+          
+        </div><!-- col-md-6 -->
+        
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('pfe_reclam_index') }}" class="btn btn-primary">Retour à la liste</a>
+        </a>
+    </li>
+</ul>
+{% endblock %}

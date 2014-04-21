@@ -183,18 +183,18 @@ class ToolController extends Controller
                 "type" => "column"
             ),
             array(
-                "name" => "Bénéfices pour la France",
+                "name" => "Fréquence d'utilisation",
                 "data" => array(6.6, 8.2, 0.76, 4.6, 2.1, 4.1, 3.9),
                 "type" => "column"
             ),
             array(
-                "name" => "Total des ventes",
+                "name" => "Temps d'arrêt",
                 "data" => array(683, 756, 543, 1208, 617, 990, 1001),
                 "type" => "spline",
                 "yAxis" => 1,
             ),
             array(
-                "name" => "Ventes en France",
+                "name" => "Suivi",
                 "data" => array(467, 321, 56, 698, 134, 344, 452),
                 "type" => "spline",
                 "yAxis" => 1,
@@ -204,14 +204,14 @@ class ToolController extends Controller
         $yData = array(
             array(
                 'title' => array(
-                    'text'  => "Bénéfices (millions d'euros)",
+                    'text'  => "Réclamtions (Rec/Jours)",
                     'style' => array('color' => '#AA4643')
                 ),
                 'opposite' => true,
             ),
             array(
                 'title' => array(
-                    'text'  => "Ventes (milliers d'unités)",
+                    'text'  => "Temps d'arrêt (Min)",
                     'style' => array('color' => '#4572A7')
                 ),
             ),
@@ -226,7 +226,7 @@ class ToolController extends Controller
         $ob->chart->renderTo('linechart'); // The #id of the div where to render the chart
         $ob->title->text('Suivi de consommation des outils ');
 
-        $ob->yAxis->title(array('text'  => "Vente en milliers"));
+        $ob->yAxis->title(array('text'  => "Réclamation"));
         $ob->yAxis($yData);
 
         $ob->xAxis->title(array('text'  => "Date du jours"));

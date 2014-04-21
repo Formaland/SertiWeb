@@ -15,3 +15,7 @@ table:
   title: Liste des outils
   column:
     name: Nom
+
+consom:
+  page:
+    index: Suivi de Consommation
