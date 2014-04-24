@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="700" height="700" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <g transform="scale(10) translate(35,35)" fill="#e70013">
+    <circle r="35"/>
+    <circle r="33" fill="#fff"/>
+    <path d="M 24,-18 A 30,30 0 1,0 24,18 A 26,26 0 1,1 24,-18"/>
+    <path d="M 32,0 L 23.7082,2.6942 23.7082,11.4127 18.5836,4.3593 10.2918,7.0534 15.4164,0 10.2918,-7.0534 L 18.5836,-4.3593 23.7082,-11.4127 L 23.7082,-2.6942 z"/>
+  </g>
+</svg>

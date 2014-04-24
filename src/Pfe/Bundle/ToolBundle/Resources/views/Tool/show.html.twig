@@ -126,6 +126,41 @@
                                             <i>Historique de Réclamation</i>
                                         </button>
                                     </a>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped mb30">
+                                            <thead>
+                                            <tr>
+                                                <th>Référence Réclamation</th>
+                                                <th>Réclamateur </th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for entity in entity %}
+                                                <tr>
+                                                    <td>{{ entity.reclamRef }}</td>
+                                                    <td>{{ entity.user }}</td>
+
+                                                    <td>
+                                                        {{ button.edit(path('pfe_reclam_edit', { 'id': entity.id })) }}
+                                                        <i data-toggle="modal" data-target=".bs-example-modal-sm" >
+                                                            {{ button.delete(path('pfe_reclam_delete', { 'id': entity.id })) }}
+                                                        </i>
+                                                        <i data-toggle="modal" data-target=".bs-example-modal-photo">
+                                                            <button class="btn btn-orange">
+                                                                <i class="fa fa-arrows-alt"></i>
+                                                            </button>
+                                                        </i>
+                                                        <a href="{{ path('pfe_reclam_show' , { 'id': entity.id }) }}">
+                                                            <button class="btn btn-lightblue">
+                                                                <i class="fa fa-eye"></i>
+                                                            </button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
                                 </div>
                             </div>
                         </div>

@@ -15,16 +15,16 @@ class MenuController extends Controller {
                 'title' => 'dashboard.name',
             ),
             array(
-                'routes' => array('pfe_tool_index', 'pfe_tool_new', 'pfe_tool_edit'),
+                'routes' => array('article_liste', 'pfe_tool_create', 'pfe_tool_edit'),
                 'icon' => 'wrench',
                 'title' => 'tool.name',
                 'submenu' => array(
                     array(
-                        'route' => 'pfe_tool_index',
+                        'route' => 'article_liste',
                         'title' => 'tool.index',
                     ),
                     array(
-                        'route' => 'pfe_tool_new',
+                        'route' => 'pfe_tool_create',
                         'title' => 'tool.new',
                     )
                 )

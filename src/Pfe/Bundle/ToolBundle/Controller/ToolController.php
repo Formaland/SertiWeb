@@ -3,9 +3,11 @@
 namespace Pfe\Bundle\ToolBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Pfe\Bundle\ToolBundle\Entity\Tool;
 use Pfe\Bundle\ToolBundle\Form\ToolType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 use Ob\HighchartsBundle\Highcharts\Highchart;
 
 class ToolController extends Controller
@@ -22,17 +24,18 @@ class ToolController extends Controller
         ));
     }
 
-    public function createAction(Request $request)
+    public function createAction()
     {
         $entity = new Tool();
         $request = $this->getRequest();
          $form = $this->createForm(new ToolType(), $entity);
-        $form->handleRequest($request);
+        $form->bind($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+
 
             return $this->redirect($this->generateUrl('pfe_tool_show', array('id' => $entity->getId())));
         }
@@ -49,7 +52,6 @@ class ToolController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('PfeToolBundle:Tool')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Tool entity.');
         }

@@ -9,9 +9,12 @@
         'bundles/pfeweb/css/style.default.css'
     %}
     <link rel="stylesheet" href="{{ asset_url }}" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css" type="text/css" />
+
     {% endstylesheets %}
 
-    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('bundles/pfeweb/images/tn.ico') }}" type="image/x-icon">
+
 </head>
 <body>
 <section>
@@ -45,6 +48,8 @@
 'bundles/pfeweb/js/custom.js'
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
+
 {% endjavascripts %}
+
 </body>
 </html>

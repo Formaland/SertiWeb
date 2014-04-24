@@ -75,6 +75,31 @@ class Tool
      */
     private $user;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\ToolBundle\Entity\Reclam", inversedBy="tools")
+     * @ORM\JoinTable(name="Tool_Reclam",
+     *      joinColumns={@ORM\JoinColumn(name="Tool_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="Reclam_id", referencedColumnName="id")}
+     *      )
+     */
+    private $reclams;
+
+
+    public function setReclam(\Pfe\Bundle\ToolBundle\Entity\Reclam $reclams )
+    {
+        $this->reclams = $reclams;
+        return $this;
+    }
+
+    /**
+     * @return Pfe\Bundle\ToolBundle\Entity\Reclam
+     */
+    public function getReclam()
+    {
+        return $this->reclams;
+    }
+
     public function __construct(){
         $this->enabled = false;
     }

@@ -1,4 +1,7 @@
 {% extends 'PfeWebBundle::layout.html.twig' %}
 
 {% block content %}
+    {% image '@PfeWebBundle/Resources/public/images/Picture2.jpg' output='images/Picture2.jpg' %}
+    <img src="{{ asset_url }}" alt="Example" width="1080" height="400"/>
+    {% endimage %}
 {% endblock %}

@@ -35,25 +35,25 @@
                         {% for key, entity in entities %}
                             <tr>
 
-                                <td><a href="{{ path('pfe_tool_show', { 'id': entity.id }) }}">{{ entity.toolName }}</a></td>
-                                <td>
-                                    {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
-                                    <i data-toggle="modal" data-target=".bs-example-modal-sm" >
-                                        {{ button.delete(path('pfe_tool_delete', { 'id': entity.id })) }}
-                                    </i>
-                                    <i data-toggle="modal" data-target=".bs-example-modal-photo">
-                                        <button class="btn btn-orange">
-                                            <i class="fa fa-arrows-alt"></i>
-                                        </button>
-                                    </i>
-                                    <a href="{{ path('pfe_tool_show' , { 'id': entity.id }) }}">
-                                        <button class="btn btn-lightblue">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
-                                    </a>
+                            <td><a href="{{ path('pfe_tool_show', { 'id': entity.id }) }}">{{ entity.toolName }}</a></td>
+                            <td>
+                                {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
+                                <i data-toggle="modal" data-target=".bs-example-modal-sm" >
+                                    {{ button.delete(path('pfe_tool_delete', { 'id': entity.id })) }}
+                                </i>
+                                <i data-toggle="modal" data-target=".bs-example-modal-photo">
+                                    <button class="btn btn-orange">
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </button>
+                                </i>
+                                <a href="{{ path('pfe_tool_show' , { 'id': entity.id }) }}">
+                                    <button class="btn btn-lightblue">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </a>
 
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                         {% endfor %}
                     {% else %}
                         Résultat vide

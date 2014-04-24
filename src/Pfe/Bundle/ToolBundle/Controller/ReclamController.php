@@ -39,9 +39,9 @@ class ReclamController extends Controller
         $form->handleRequest($request);
 
 
-if ($this->getUser()) {
+     if ($this->getUser()) {
       // On définit le User par défaut dans le formulaire (utilisateur courant)
-     $entity->setUser($this->getUser());
+        $entity->setUser($this->getUser());
      
      }
         if ($form->isValid()) {
@@ -72,6 +72,7 @@ if ($this->getUser()) {
 
         return $this->render('PfeToolBundle:Reclam:show.html.twig', array(
             'entity' => $entity,
+           // 'user' => $user,
 
 
         ));
