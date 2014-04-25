@@ -57,11 +57,11 @@
                             <div class="btn-group mr10"><a href="{{ path('pfe_tool_delete', { 'id': entity.id }) }}">
                                     <button class="btn btn-white tooltips" title="" data-toggle="tooltip" type="button" data-original-title="Supprimer">
                                         <i class="fa fa-trash-o"></i>
-                                        {{ form_widget(delete_form) }}
+
                                     </button>
                                 </a></div>
 
-                            <div>{{ form(delete_form) }}</div>
+
 
                         </div>
                     </div><!-- col-sm-4 -->
@@ -69,8 +69,22 @@
                 <table class="record_properties">
                     <tbody>
                     <tr>
-                        <th>Active / En attente </th>
-                        <td>{{ entity.enabled }}</td>
+                        <a href="{{ path('pfe_tool_validate' , {'id': entity.id} ) }}">
+                            test
+                        </a>
+                    </tr>
+                    <tr>
+                        {% if entity.enabled == "True" %}
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <strong>Well done!</strong> You successfully approved this tool.
+                            </div>
+                            {% elseif entity.enabled == "false"  %}
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Alert !! </strong> This tool need to be approved.
+                                </div>
+                         {% endif %}
                     </tr>
                     </tbody>
                 </table>

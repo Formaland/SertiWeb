@@ -26,7 +26,7 @@
                         <tr>
                             <td>{{ entity.reclamRef }}</td>
                             <td>{{ entity.user }}</td>
-                            <td>{{ entity.tool }}</td>
+                            <td> <a href="{{ path('pfe_tool_show' , { 'id': entity.id }) }}">{{ entity.tool }}</a></td>
                             <td>
                                 {{ button.edit(path('pfe_reclam_edit', { 'id': entity.id })) }}
                                 <i data-toggle="modal" data-target=".bs-example-modal-sm" >

@@ -22,9 +22,15 @@ pfe_tool_update:
     pattern:  /{id}/update
     defaults: { _controller: PfeToolBundle:Tool:update }
 
+pfe_tool_validate:
+     pattern: /{id}/validate
+     defaults: { _controller: PfeToolBundle:Validation:validate }
+
+
 pfe_tool_delete:
     pattern:  /{id}/delete
     defaults: { _controller: PfeToolBundle:Tool:delete }
+
 
 article_liste:
     pattern:  /liste/{page}
@@ -33,3 +39,4 @@ article_liste:
 overviewchart:
      pattern:  /graph
      defaults: { _controller: PfeToolBundle:Tool:overviewChart }
+

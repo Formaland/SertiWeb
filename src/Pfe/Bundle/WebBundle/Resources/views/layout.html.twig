@@ -7,6 +7,7 @@
 
     {% stylesheets output='compiled/backend/main.css' filter='cssrewrite'
         'bundles/pfeweb/css/style.default.css'
+        'bundles/pfeweb/css/dropzone.css'
     %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css" type="text/css" />
@@ -46,6 +47,7 @@
 'bundles/pfeweb/js/retina.min.js'
 'bundles/pfeweb/js/jquery.cookies.js'
 'bundles/pfeweb/js/custom.js'
+    'bundles/pfeweb/js/dropzone.min.js'
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 
