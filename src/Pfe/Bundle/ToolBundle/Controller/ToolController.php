@@ -47,7 +47,7 @@ class ToolController extends Controller
     }
 
 
-    public function showAction($id)
+    public function showAction(Tool $tools, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -55,11 +55,22 @@ class ToolController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Tool entity.');
         }
+        
+        $reclams = $em->getRepository('PfeToolBundle:Reclam')
+                          ->findByTools($tools->getId());
 
+        $homologations = $em->getRepository('PfeToolBundle:Homologation')
+            ->findByTools($tools->getId());
+
+        $checklists = $em->getRepository('PfeToolBundle:CheckList')
+            ->findByTools($tools->getId());
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PfeToolBundle:Tool:show.html.twig', array(
             'entity'      => $entity,
+            'reclams'     => $reclams,
+            'homologations'  => $homologations,
+            'checklists'  =>  $checklists,
             'delete_form' => $deleteForm->createView(),
         ));
     }

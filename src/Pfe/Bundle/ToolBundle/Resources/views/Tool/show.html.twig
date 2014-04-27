@@ -68,11 +68,19 @@
                 </div><!-- row -->
                 <table class="record_properties">
                     <tbody>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <tr>
+                        {% if entity.enabled == "false" %}
                         <a href="{{ path('pfe_tool_validate' , {'id': entity.id} ) }}">
-                            test
+                            <i class="btn btn-success">Valider</i>
                         </a>
+                            {% elseif entity.enabled =="True" %}
+                                <a href="{{ path('pfe_tool_bloquer' , {'id': entity.id} ) }}">
+                                    <i class="btn btn-danger">Bloquer</i>
+                                </a>
+                                {% endif %}
                     </tr>
+    {% endif %}
                     <tr>
                         {% if entity.enabled == "True" %}
                             <div class="alert alert-success">
@@ -128,6 +136,66 @@
                                     </button>
                                 </a>
                             </div><!-- panel-body -->
+                            {% if homologations is not empty %}
+                            <div class="table-responsive">
+                                <table class="table table-bordered mb30">
+                                    <thead>
+                                    <tr style="text-align: center">
+                                        <th>Position</th>
+                                        <th>Type de Fils</th>
+                                        <th>Section</th>
+                                        <th>Critère</th>
+                                        <th colspan="2" style="text-align: center">Fil</th>
+                                        <th colspan="2" style="text-align: center">Isolation</th>
+                                        <th colspan="2" style="text-align: center">Etape</th>
+                                        <th>Remarque</th>
+                                        <th>Date</th>
+                                    </tr>
+                                    <tr style="text-align: center">
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th style="text-align: center">Hauteur</th>
+                                        <th style="text-align: center">Largeur</th>
+                                        <th style="text-align: center">Hauteur</th>
+                                        <th style="text-align: center">Largeur</th>
+                                        <th>DCH</th>
+                                        <th>ICH</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for homologations in homologations %}
+                                        <tr style="text-align: center">
+                                            <td>{{ homologations.id }}</td>
+                                            <td>{{ homologations.filtype }}</td>
+                                            <td>{{ homologations.section }}</td>
+                                            <td>{{ homologations.standard }}</td>
+                                            <td>{{ homologations.fil }}</td>
+                                            <td>{{ homologations.filWidth }}</td>
+                                            <td>{{ homologations.isolationHeight }}</td>
+                                            <td>{{ homologations.isolationWidth }}</td>
+                                            <td>{{ homologations.stepDch }}</td>
+                                            <td>{{ homologations.stepIch }}</td>
+                                            <td>{{ homologations.note }}</td>
+                                            <td>{% if homologations.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div>
+                                    Remarque : <br>
+                                    1 = Ail de sertissage pas selon DIN <br>
+                                    2 = Pas d'homologation à cause de la dérogation
+                                </div>
+                            </div><!-- table-responsive -->
+                            {% else %}
+                                <div class="alert alert-info">
+                                    <strong>Pas de données pour cet outil !!</strong>
+                                </div>
+
+                            {% endif %}
                         </div><!-- panel -->
                     </div><!-- col-md-6 -->
 
@@ -140,6 +208,7 @@
                                             <i>Historique de Réclamation</i>
                                         </button>
                                     </a>
+                                      {% if reclams is not empty %}
                                     <div class="table-responsive">
                                         <table class="table table-striped mb30">
                                             <thead>
@@ -150,21 +219,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for entity in entity %}
+                                            
+                                            {% for reclams in reclams %}
                                                 <tr>
-                                                    <td>{{ entity.reclamRef }}</td>
-                                                    <td>{{ entity.user }}</td>
+                                                    <td>{{ reclams.reclamRef }}</td>
+                                                    <td>{{ reclams.user }}</td>
 
                                                     <td>
-                                                        {{ button.edit(path('pfe_reclam_edit', { 'id': entity.id })) }}
-                                                        <i data-toggle="modal" data-target=".bs-example-modal-sm" >
-                                                            {{ button.delete(path('pfe_reclam_delete', { 'id': entity.id })) }}
-                                                        </i>
-                                                        <i data-toggle="modal" data-target=".bs-example-modal-photo">
-                                                            <button class="btn btn-orange">
-                                                                <i class="fa fa-arrows-alt"></i>
-                                                            </button>
-                                                        </i>
                                                         <a href="{{ path('pfe_reclam_show' , { 'id': entity.id }) }}">
                                                             <button class="btn btn-lightblue">
                                                                 <i class="fa fa-eye"></i>
@@ -173,8 +234,15 @@
                                                     </td>
                                                 </tr>
                                             {% endfor %}
+                                            
                                             </tbody>
                                         </table>
+                                        {% else %}
+                                        <div class="alert alert-info">
+                                <strong>Pas de Réclamation pour cet outil !!</strong>
+                            </div>
+                         
+                    {% endif %}
                                 </div>
                             </div>
                         </div>

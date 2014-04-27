@@ -25,4 +25,20 @@ class ValidationController extends Controller
             'entity' => $entity,
         ));
     }
+
+    public function bloquerAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('PfeToolBundle:Tool')->find($id);
+
+        $entity->setEnabled("false");
+        $em->persist($entity);
+        $em->flush();
+
+
+        return $this->render('PfeToolBundle:Tool:show.html.twig', array(
+            'entity' => $entity,
+        ));
+    }
 }

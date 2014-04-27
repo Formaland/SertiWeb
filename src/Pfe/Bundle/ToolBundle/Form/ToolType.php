@@ -15,8 +15,9 @@ use Pfe\Bundle\ToolBundle\Entity\Tool;
     {
         $builder
             ->add('toolname', 'text' ,array('label'  => 'Nom de l\'outil'))
-            ->add('supplierName', 'text' ,array('label'  => 'Date du fournisseur',))
-            ->add('inventoryNumber', 'text')
+            ->add('supplierName', 'text' ,array('label'  => 'Nom du fournisseur',))
+            ->add('inventoryNumber', 'text' ,array('label'  => 'N° d\'inventaire'))
+            ->add('dessin' , 'text' ,array('label'  => 'Dessin d\'ensemble & Liste PR'))
             ->add('leoniNbr', 'number', array(
             'label'  => 'N° Pièce LEONI',
             'invalid_message'            => 'You entered an invalid value - it should include %num% letters',

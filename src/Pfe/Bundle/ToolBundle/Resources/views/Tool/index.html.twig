@@ -26,6 +26,8 @@
                     <thead>
                     <tr>
                         <th>{{ 'table.column.name'|trans({}, 'tool') }}</th>
+                        <th>Fournisseur</th>
+                        <th></th>
                         <th></th>
                     </tr>
                     </thead>
@@ -34,6 +36,7 @@
                         <tr>
 
                             <td>{{ entity.toolName }}</td>
+
                             <td>
                                 {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
                                 <i data-toggle="modal" data-target=".bs-example-modal-sm" >

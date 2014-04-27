@@ -48,7 +48,6 @@ class ReclamController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('success', 'Salle bien ajouté');
             return $this->redirect($this->generateUrl('pfe_reclam_show', array('id'=>$entity->getId()
             )));
 

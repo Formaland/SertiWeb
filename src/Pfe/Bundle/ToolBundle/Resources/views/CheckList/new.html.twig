@@ -1,8 +1,15 @@
-{% extends '::base.html.twig' %}
+{% extends 'PfeWebBundle::layout.html.twig' %}
+{% import 'PfeWebBundle:Macro:button.html.twig' as button %}
 
-{% block body -%}
-    <h1>CheckList creation</h1>
+{% block title_head %}
+    {{ 'title.head.new'|trans({}, 'checklist') }}
+{% endblock %}
 
+{% block title_page %}
+    <i class="fa fa-wrench"></i> {{ 'title.page.new'|trans({}, 'checklist') }}
+{% endblock %}
+
+{% block content -%}
     {{ form(form) }}
 
         <ul class="record_actions">

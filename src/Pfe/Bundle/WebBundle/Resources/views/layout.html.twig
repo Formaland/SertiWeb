@@ -8,6 +8,7 @@
     {% stylesheets output='compiled/backend/main.css' filter='cssrewrite'
         'bundles/pfeweb/css/style.default.css'
         'bundles/pfeweb/css/dropzone.css'
+        'bundles/pfeweb/css/jquery.datatables.css'
     %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css" type="text/css" />
@@ -47,9 +48,18 @@
 'bundles/pfeweb/js/retina.min.js'
 'bundles/pfeweb/js/jquery.cookies.js'
 'bundles/pfeweb/js/custom.js'
-    'bundles/pfeweb/js/dropzone.min.js'
+'bundles/pfeweb/js/jquery-ui-1.10.3.min.js'
+'bundles/pfeweb/js/flot/flot.resize.min.js'
+'bundles/pfeweb/js/flot/flot.min.js'
+'bundles/pfeweb/js/dropzone.min.js'
+'bundles/pfeweb/js/morris.min.js'
+'bundles/pfeweb/js/raphael-2.1.0.min.js'
+'bundles/pfeweb/js/dashboard.js'
+'bundles/pfeweb/js/jquery.datatables.min.js'
+'bundles/pfeweb/js/chosen.jquery.min.js'
 %}
-<script type="text/javascript" src="{{ asset_url }}"></script>
+<script type="text/javascript" src="{{ asset_url }}">
+</script>
 
 {% endjavascripts %}
 

@@ -66,7 +66,7 @@ class Reclam
     }
 
     /**
-     * @return Pfe\Bundle\UserBundle\Entity\User
+     * @return \Pfe\Bundle\UserBundle\Entity\User
      */
     public function getUser()
     {
@@ -89,7 +89,7 @@ class Reclam
     }
 
     /**
-     * @return Pfe\Bundle\ToolBundle\Entity\Tool
+     * @return \Pfe\Bundle\ToolBundle\Entity\Tool
      */
     public function getTool()
     {

@@ -26,6 +26,9 @@ pfe_tool_validate:
      pattern: /{id}/validate
      defaults: { _controller: PfeToolBundle:Validation:validate }
 
+pfe_tool_bloquer:
+     pattern: /{id}/bloque
+     defaults: { _controller: PfeToolBundle:Validation:bloquer }
 
 pfe_tool_delete:
     pattern:  /{id}/delete

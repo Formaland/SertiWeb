@@ -5,6 +5,8 @@ namespace Pfe\Bundle\ToolBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Pfe\Bundle\ToolBundle\Entity\CheckList;
+use Doctrine\ORM\EntityRepository;
 
 class CheckListType extends AbstractType
 {
@@ -15,6 +17,12 @@ class CheckListType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('tool', 'entity', array(
+                'class' => 'PfeToolBundle:Tool',
+                'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('s')
+                            ->orderBy('s.toolname', 'ASC');
+                    },))
             ->add('ch', 'text', array('label'     => 'CH','required'  => false,))
             ->add('cb', 'text', array('label'     => 'CB','required'  => false,))
             ->add('attributif', 'checkbox', array('label'     => 'Attributif','required'  => false,))

@@ -1,0 +1,9 @@
+title:
+  page:
+    index: Gestion des CheckList
+    new: Ajouter un CheckList
+    edit: Modification un CheckList
+  head:
+    index: Administration - Gestion des checklist
+    new: Administration - Ajouter un checklist
+    edit: Administration - Modification checklist

@@ -67,7 +67,7 @@ class Terminal
     }
 
     /**
-     * @return Pfe\Bundle\ToolBundle\Entity\Terminal
+     * @return \Pfe\Bundle\ToolBundle\Entity\Terminal
      */
     public function getType()
     {

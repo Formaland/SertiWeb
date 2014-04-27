@@ -64,16 +64,18 @@ class Tool
     protected  $enabled;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\ToolBundle\Entity\Homologation", inversedBy="tool")
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     * @var string
+     *
+     * @ORM\Column(name="dessin", type="string", length=100)
      */
-    private $homologation;
+     private $dessin ;
+
 
     /**
-     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\UserBundle\Entity\User", inversedBy="tool")
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     * @ORM\ManyToMany(targetEntity="Pfe\Bundle\UserBundle\Entity\User", inversedBy="tools")
+     * @ORM\JoinColumn(name="Tool_User")
      */
-    private $user;
+    private $users;
 
 
     /**
@@ -93,7 +95,7 @@ class Tool
     }
 
     /**
-     * @return Pfe\Bundle\ToolBundle\Entity\Reclam
+     * @return \Pfe\Bundle\ToolBundle\Entity\Reclam
      */
     public function getReclam()
     {
@@ -253,6 +255,28 @@ class Tool
     {
         return $this->enabled;
     }
+
+
+    /**
+     * set dessin
+     * @param string $dessin
+     * @return Tool
+     */
+    public function setDessin($dessin)
+    {
+        $this->dessin = $dessin;
+    }
+
+    /**
+     * Get dessin
+     *
+     * @return string
+     */
+    public function getDessin()
+    {
+        return $this->dessin;
+    }
+
 
     public function __toString()
     {

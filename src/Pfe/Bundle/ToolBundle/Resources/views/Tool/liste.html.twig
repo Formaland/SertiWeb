@@ -13,7 +13,6 @@
         </div>
         <div class="panel-body">
 
-
         </div>
     </div>
 
@@ -27,6 +26,8 @@
                     <thead>
                     <tr>
                         <th>{{ 'table.column.name'|trans({}, 'tool') }}</th>
+                        <th>Fournisseur</th>
+                        <th></th>
                         <th></th>
                     </tr>
                     </thead>
@@ -36,6 +37,8 @@
                             <tr>
 
                             <td><a href="{{ path('pfe_tool_show', { 'id': entity.id }) }}">{{ entity.toolName }}</a></td>
+                            <td>{{ entity.supplierName }}</td>
+                            <td> Ajouté le : {{ entity.date|date('d-m-Y') }}</td>
                             <td>
                                 {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
                                 <i data-toggle="modal" data-target=".bs-example-modal-sm" >

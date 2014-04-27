@@ -142,6 +142,29 @@ class CheckList
 
 
     /**
+     * @ORM\ManyToOne(targetEntity="Pfe\Bundle\ToolBundle\Entity\Tool", inversedBy="checklist")
+     * @ORM\JoinTable(name="CheckList_Tool",
+     *      joinColumns={@ORM\JoinColumn(name="CheckList_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="Tool_id", referencedColumnName="id")}
+     *      )
+     */
+    private $tools;
+
+
+    public function setTool(\Pfe\Bundle\ToolBundle\Entity\Tool $tools )
+    {
+        $this->tools = $tools;
+        return $this;
+    }
+
+    /**
+     * @return Pfe\Bundle\ToolBundle\Entity\Tool
+     */
+    public function getTool()
+    {
+        return $this->tools;
+    }
+    /**
      * Get id
      *
      * @return integer 

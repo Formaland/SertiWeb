@@ -5,6 +5,8 @@ namespace Pfe\Bundle\ToolBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Pfe\Bundle\ToolBundle\Entity\Homologation;
+use Doctrine\ORM\EntityRepository;
 
 class HomologationType extends AbstractType
 {
@@ -15,6 +17,12 @@ class HomologationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('tool', 'entity', array(
+                'class' => 'PfeToolBundle:Tool',
+                'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('s')
+                            ->orderBy('s.toolname', 'ASC');
+                    },))
             ->add('fil_type')
             ->add('section')
             ->add('standard')
