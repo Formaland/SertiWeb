@@ -1,0 +1,30 @@
+pfe_intervention_index:
+    pattern:  /
+    defaults: { _controller: "PfeToolBundle:Intervention:index" }
+
+pfe_intervention_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PfeToolBundle:Intervention:show" }
+
+pfe_intervention_new:
+    pattern:  /new
+    defaults: { _controller: "PfeToolBundle:Intervention:new" }
+
+pfe_intervention_create:
+    pattern:  /create
+    defaults: { _controller: "PfeToolBundle:Intervention:create" }
+    requirements: { _method: post }
+
+pfe_intervention_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PfeToolBundle:Intervention:edit" }
+
+pfe_intervention_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PfeToolBundle:Intervention:update" }
+    requirements: { _method: post|put }
+
+pfe_intervention_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PfeToolBundle:Intervention:delete" }
+    requirements: { _method: post|delete }

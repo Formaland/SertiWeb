@@ -53,12 +53,53 @@
                 </div><!-- panel-body -->
             </div>
         </div>
+    <div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="{{ path('pfe_intervention_index') }}">
+                    <button class="btn btn-danger-alt">
+                        <i>Historique d'intervention</i>
+                    </button>
+                </a>
+                {% if interventions is not empty %}
+                <div class="table-responsive">
+                    <table class="table table-striped mb30">
+                        <thead>
+                        <tr>
+                            <th>Référence Intervention</th>
 
-    </div><!-- row -->
+                        </tr>
+                        </thead>
+                        <tbody>
 
+                        {% for interventions in interventions %}
+                            <tr> {{ nb_intervention }}</tr>
+                            <tr>
+                                <td>{{ interventions.ref }} <br>
+                                    <small class="text-muted">Ajouté le |  {{ interventions.date|date('d-m-Y') }}</small></td>
+
+                                <td>
+                                    <a href="{{ path('pfe_intervention_show' , { 'id': entity.id }) }}">
+                                        <button class="btn btn-lightblue">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <strong>Aucune intervention pour cette réclamation!!</strong>
+                        </div>
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
-
-    </div><!-- mainpanel -->
-
 
 {% endblock %}

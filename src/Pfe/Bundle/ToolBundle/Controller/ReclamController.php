@@ -57,12 +57,15 @@ class ReclamController extends Controller
                 'form' => $form->createView())
         );
     }
-    public function ReclamshowAction(User $user,$id)
+    public function ReclamshowAction(Reclam $reclams , $id)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('PfeToolBundle:Reclam')->find($id);
         //$user = $em->getRepository('PfeUserBundle:User')->getUser($user->getId());
+
+        $interventions = $em->getRepository('PfeToolBundle:Intervention')
+            ->findByReclams($reclams->getId());
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Salle entity.');
         }
@@ -71,6 +74,8 @@ class ReclamController extends Controller
 
         return $this->render('PfeToolBundle:Reclam:show.html.twig', array(
             'entity' => $entity,
+            'interventions' => $interventions,
+            'nb_intervention' => ceil(count($interventions)),
            // 'user' => $user,
 
 

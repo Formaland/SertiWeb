@@ -28,7 +28,7 @@ class ToolController extends Controller
     {
         $entity = new Tool();
         $request = $this->getRequest();
-         $form = $this->createForm(new ToolType(), $entity);
+        $form = $this->createForm(new ToolType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -36,8 +36,8 @@ class ToolController extends Controller
             $em->persist($entity);
             $em->flush();
 
-
             return $this->redirect($this->generateUrl('pfe_tool_show', array('id' => $entity->getId())));
+
         }
 
         return $this->render('PfeToolBundle:Tool:new.html.twig' ,array(

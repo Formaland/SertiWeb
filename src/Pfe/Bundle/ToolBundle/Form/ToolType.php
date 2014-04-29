@@ -20,8 +20,6 @@ use Pfe\Bundle\ToolBundle\Entity\Tool;
             ->add('dessin' , 'text' ,array('label'  => 'Dessin d\'ensemble & Liste PR'))
             ->add('leoniNbr', 'number', array(
             'label'  => 'N° Pièce LEONI',
-            'invalid_message'            => 'You entered an invalid value - it should include %num% letters',
-            'invalid_message_parameters' => array('%num%' => 6),
             ))
             ->add('date', 'date', array(
                                                 'widget' => 'single_text',

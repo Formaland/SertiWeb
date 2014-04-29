@@ -58,11 +58,15 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
+    transport: gmail
+    encryption: ssl
+    auth_mode: login
+    host: localhost
+    username: admin
+    password: admin
     spool:     { type: memory }
+    delivery_address: oussisgs@gmail.com # an email address where to send ALL emails (useful for dev parts)
+    disable_delivery: false # set to true to disable delivery completely
 
 parameters:
     max_articles_on_listepage: 10

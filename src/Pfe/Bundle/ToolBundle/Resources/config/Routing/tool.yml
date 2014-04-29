@@ -34,7 +34,6 @@ pfe_tool_delete:
     pattern:  /{id}/delete
     defaults: { _controller: PfeToolBundle:Tool:delete }
 
-
 article_liste:
     pattern:  /liste/{page}
     defaults: { _controller: PfeToolBundle:Tool:liste, page: 1 }

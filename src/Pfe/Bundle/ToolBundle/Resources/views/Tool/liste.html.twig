@@ -38,7 +38,8 @@
 
                             <td><a href="{{ path('pfe_tool_show', { 'id': entity.id }) }}">{{ entity.toolName }}</a></td>
                             <td>{{ entity.supplierName }}</td>
-                            <td> Ajouté le : {{ entity.date|date('d-m-Y') }}</td>
+                                <td><small class="text-muted">Ajouté le |  {{ entity.date|date('d-m-Y') }}</small></td>
+
                             <td>
                                 {{ button.edit(path('pfe_tool_edit', { 'id': entity.id })) }}
                                 <i data-toggle="modal" data-target=".bs-example-modal-sm" >

@@ -212,4 +212,9 @@ class Reclam
         return $sujets[$this->sujets];
     }
 
+    public function __toString()
+    {
+        return (string) $this->getReclamRef();
+    }
+
 }

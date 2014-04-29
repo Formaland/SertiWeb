@@ -13,3 +13,7 @@ pfe_tool_bundle_CheckList:
 pfe_tool_bundle_reclam:
     resource: "@PfeToolBundle/Resources/config/Routing/reclam.yml"
     prefix: /reclams
+
+pfe_tool_bundle_intervention:
+    resource: "@PfeToolBundle/Resources/config/Routing/intervention.yml"
+    prefix: /intervention
